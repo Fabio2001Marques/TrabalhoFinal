@@ -58,6 +58,13 @@ class TestBaseDados {
     //-----------------------------------------------------------------------------------
     private fun getTabelaPessoas(db: SQLiteDatabase) = TabelaPessoas(db)
 
+    private fun insertPessoas(tabelaPessoas: TabelaPessoas, pessoa: Pessoa): Long {
+        val id = tabelaPessoas.insert(pessoa.toContentValues())
+        assertNotEquals(-1, id)
+
+        return id
+    }
+
     @Before
     fun apagaBaseDados(){
         getAppContext().deleteDatabase(BDCovidOpenHelper.NOME_BASE_DADOS)
@@ -150,7 +157,7 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        insertVacina(getTabelaVacinas(db), Vacina(nome ="Moderna",quantidade = 15,data = "26/05/2021"))
+        insertPessoas(getTabelaPessoas(db), Pessoa(nome ="Jose",data_nascimento = "5/03/1970",morada = "Rua Principal nº47 Casais do Porto, Louriçal, Pombal", campo_cc = "30530747",contacto = "915710186"))
 
         db.close()
 
