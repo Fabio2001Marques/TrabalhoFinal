@@ -36,8 +36,8 @@ class TestBaseDados {
         return id
     }
 
-    private fun GetVacinaBd(tabelaCategorias: TabelaVacinas, id: Long): Vacina {
-        val cursor = tabelaCategorias.query(
+    private fun GetVacinaBd(tabelaVacinas: TabelaVacinas, id: Long): Vacina {
+        val cursor = tabelaVacinas.query(
             TabelaVacinas.TODOS_CAMPOS,
             "${BaseColumns._ID}=?",
             arrayOf(id.toString()),
@@ -64,6 +64,27 @@ class TestBaseDados {
 
         return id
     }
+
+    private fun GetPessoasBd(tabelaPessoas: TabelaPessoas, id: Long): Pessoa {
+        val cursor = tabelaPessoas.query(
+            TabelaPessoas.TODOS_CAMPOS,
+            "${BaseColumns._ID}=?",
+            arrayOf(id.toString()),
+            null,
+            null,
+            null
+        )
+
+        assertNotNull(cursor)
+        assert(cursor!!.moveToNext())
+
+        return Pessoa.fromCursor(cursor)
+
+    }
+
+    //-----------------------------------------------------------------------------------
+    // Testes
+    //-----------------------------------------------------------------------------------
 
     @Before
     fun apagaBaseDados(){
@@ -200,5 +221,20 @@ class TestBaseDados {
         db.close()
     }
 
+    @Test
+
+    fun consegueLerPessoas() {
+
+        val db = getBDCovidOpenHelper().writableDatabase
+        val tabelaPessoas = getTabelaPessoas(db)
+
+        val pessoa = Pessoa(nome ="Jose",data_nascimento = "5/03/1970",morada = "Rua Principal nº47 Casais do Porto, Louriçal, Pombal", campo_cc = "30530747",contacto = "915710186")
+        pessoa.id = insertPessoas(tabelaPessoas, pessoa)
+
+        val pessoaBd = GetPessoasBd(tabelaPessoas, pessoa.id)
+        assertEquals(pessoa, pessoaBd)
+
+        db.close()
+    }
 
 }
