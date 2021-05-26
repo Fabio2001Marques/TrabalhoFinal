@@ -19,12 +19,18 @@ import org.junit.Before
 class TestBaseDados {
 
     private fun getAppContext() = InstrumentationRegistry.getInstrumentation().targetContext
-    private fun getBdLivrosOpenHelper() = BDCovidOpenHelper(getAppContext())
+    private fun getBDCovidOpenHelper() = BDCovidOpenHelper(getAppContext())
     private fun getTabelaVacinas(db: SQLiteDatabase) = TabelaVacinas(db)
     private fun getTabelaPessoas(db: SQLiteDatabase) = TabelaPessoas(db)
     private fun getTabelaEnfermeiros(db: SQLiteDatabase) = TabelaEnfermeiros(db)
     private fun getTabelaDose(db: SQLiteDatabase) = TabelaDose(db)
 
+    private fun insertVacina(tabelaVacinas: TabelaVacinas, vacina: Vacina): Long {
+        val id = tabelaVacinas.insert(vacina.toContentValues())
+        assertNotEquals(-1, id)
+
+        return id
+    }
 
     @Before
     fun apagaBaseDados(){
@@ -32,11 +38,20 @@ class TestBaseDados {
     }
 
     @Test
-    fun consegueAbrirBaseDados(){
+    fun consegueAbrirBaseDados() {
 
-        val dbOpenHelper = BDCovidOpenHelper(getAppContext())
-        val db = dbOpenHelper.readableDatabase
+        val db = getBDCovidOpenHelper().readableDatabase
         assert(db.isOpen)
+        db.close()
+    }
+    @Test
+
+    fun consegueInserirVacinas(){
+
+        val db = getBDCovidOpenHelper().writableDatabase
+
+        insertVacina(getTabelaVacinas(db), Vacina(nome ="Moderna",quantidade = 15,data = "26/05/2021"))
+
         db.close()
 
     }
