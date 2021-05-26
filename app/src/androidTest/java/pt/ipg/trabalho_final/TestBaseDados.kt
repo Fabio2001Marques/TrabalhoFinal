@@ -79,5 +79,20 @@ class TestBaseDados {
         db.close()
     }
 
+    @Test
+
+    fun consegueApagarVacinas() {
+
+        val db = getBDCovidOpenHelper().writableDatabase
+        val tabelaVacinas = getTabelaVacinas(db)
+        val vacina = Vacina(nome ="Teste",quantidade = 15,data = "26/05/2021")
+        vacina.id = insertVacina(tabelaVacinas, vacina)
+
+        val registosApagados = tabelaVacinas.delete("${BaseColumns._ID}=?",arrayOf(vacina.id.toString()))
+        assertEquals(1, registosApagados)
+
+        db.close()
+    }
+
 
 }
