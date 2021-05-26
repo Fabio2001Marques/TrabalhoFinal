@@ -21,10 +21,13 @@ class TestBaseDados {
 
     private fun getAppContext() = InstrumentationRegistry.getInstrumentation().targetContext
     private fun getBDCovidOpenHelper() = BDCovidOpenHelper(getAppContext())
-    private fun getTabelaVacinas(db: SQLiteDatabase) = TabelaVacinas(db)
-    private fun getTabelaPessoas(db: SQLiteDatabase) = TabelaPessoas(db)
     private fun getTabelaEnfermeiros(db: SQLiteDatabase) = TabelaEnfermeiros(db)
     private fun getTabelaDose(db: SQLiteDatabase) = TabelaDose(db)
+
+    //-----------------------------------------------------------------------------------
+    // Tabela Vacinas
+    //-----------------------------------------------------------------------------------
+    private fun getTabelaVacinas(db: SQLiteDatabase) = TabelaVacinas(db)
 
     private fun insertVacina(tabelaVacinas: TabelaVacinas, vacina: Vacina): Long {
         val id = tabelaVacinas.insert(vacina.toContentValues())
@@ -50,6 +53,11 @@ class TestBaseDados {
 
     }
 
+    //-----------------------------------------------------------------------------------
+    // Tabela Pessoas
+    //-----------------------------------------------------------------------------------
+    private fun getTabelaPessoas(db: SQLiteDatabase) = TabelaPessoas(db)
+
     @Before
     fun apagaBaseDados(){
         getAppContext().deleteDatabase(BDCovidOpenHelper.NOME_BASE_DADOS)
@@ -62,6 +70,11 @@ class TestBaseDados {
         assert(db.isOpen)
         db.close()
     }
+
+    //-----------------------------------------------------------------------------------
+    // Tabela Vacinas
+    //-----------------------------------------------------------------------------------
+
     @Test
 
     fun consegueInserirVacinas(){
@@ -127,5 +140,20 @@ class TestBaseDados {
         db.close()
     }
 
+    //-----------------------------------------------------------------------------------
+    // Tabela Pessoas
+    //-----------------------------------------------------------------------------------
+
+    @Test
+
+    fun consegueInserirPessoas(){
+
+        val db = getBDCovidOpenHelper().writableDatabase
+
+        insertVacina(getTabelaVacinas(db), Vacina(nome ="Moderna",quantidade = 15,data = "26/05/2021"))
+
+        db.close()
+
+    }
 
 }
