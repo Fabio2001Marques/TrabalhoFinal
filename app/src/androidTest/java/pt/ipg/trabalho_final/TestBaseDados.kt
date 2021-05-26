@@ -184,4 +184,21 @@ class TestBaseDados {
 
         db.close()
     }
+
+    @Test
+
+    fun consegueApagarPessoas() {
+
+        val db = getBDCovidOpenHelper().writableDatabase
+        val tabelaPessoas = getTabelaPessoas(db)
+        val pessoa = Pessoa(nome ="Jose",data_nascimento = "5/03/1970",morada = "Rua Principal nº47 Casais do Porto, Louriçal, Pombal", campo_cc = "30530747",contacto = "915710186")
+        pessoa.id = insertPessoas(tabelaPessoas, pessoa)
+
+        val registosApagados = tabelaPessoas.delete("${BaseColumns._ID}=?",arrayOf(pessoa.id.toString()))
+        assertEquals(1, registosApagados)
+
+        db.close()
+    }
+
+
 }
