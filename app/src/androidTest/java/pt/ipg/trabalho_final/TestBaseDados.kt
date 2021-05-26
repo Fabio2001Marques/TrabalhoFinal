@@ -163,4 +163,25 @@ class TestBaseDados {
 
     }
 
+    @Test
+
+    fun consegueAlterarPessoas() {
+
+        val db = getBDCovidOpenHelper().writableDatabase
+
+        val tabelaPessoa = getTabelaPessoas(db)
+        val pessoa = Pessoa(nome ="Jose",data_nascimento = "5/03/1970",morada = "Rua Principal nº47 Casais do Porto, Louriçal, Pombal", campo_cc = "30530747",contacto = "915710186")
+        pessoa.id = insertPessoas(tabelaPessoa, pessoa)
+        pessoa.nome = "Maria"
+
+        val registosAlterados = tabelaPessoa.update(
+            pessoa.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(pessoa.id.toString())
+        )
+
+        assertEquals(1, registosAlterados)
+
+        db.close()
+    }
 }
