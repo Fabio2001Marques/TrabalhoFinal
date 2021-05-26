@@ -1,6 +1,7 @@
 package pt.ipg.trabalho_final
 
 import android.database.sqlite.SQLiteDatabase
+import android.provider.BaseColumns
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 
@@ -54,6 +55,28 @@ class TestBaseDados {
 
         db.close()
 
+    }
+
+    @Test
+
+    fun consegueAlterarVacinas(){
+
+        val db = getBDCovidOpenHelper().writableDatabase
+
+        val tabelaVacinas = getTabelaVacinas(db)
+        val vacina = Vacina(nome ="Moderna",quantidade = 15,data = "26/05/2021")
+        vacina.id = insertVacina(tabelaVacinas, vacina)
+        vacina.nome = "phizer"
+
+        val registosAlterados = tabelaVacinas.update(
+            vacina.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(vacina.id.toString())
+        )
+
+        assertEquals(1, registosAlterados)
+
+        db.close()
     }
 
 
