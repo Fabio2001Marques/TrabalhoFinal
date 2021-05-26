@@ -14,9 +14,9 @@ class BDCovidOpenHelper(context: Context?)
      */
     override fun onCreate(db: SQLiteDatabase?) {
         if (db != null) {
-            //TabelaEnfermeiros(db).cria()
-            //TabelaPessoas(db).cria()
-            //TabelaVacinas(db).cria()
+            TabelaEnfermeiros(db).cria()
+            TabelaPessoas(db).cria()
+            TabelaVacinas(db).cria()
         }
     }
 
