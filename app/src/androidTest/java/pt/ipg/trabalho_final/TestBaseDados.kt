@@ -33,6 +33,23 @@ class TestBaseDados {
         return id
     }
 
+    private fun GetVacinaBd(tabelaCategorias: TabelaVacinas, id: Long): Vacina {
+        val cursor = tabelaCategorias.query(
+            TabelaVacinas.TODOS_CAMPOS,
+            "${BaseColumns._ID}=?",
+            arrayOf(id.toString()),
+            null,
+            null,
+            null
+        )
+
+        assertNotNull(cursor)
+        assert(cursor!!.moveToNext())
+
+        return Vacina.fromCursor(cursor)
+
+    }
+
     @Before
     fun apagaBaseDados(){
         getAppContext().deleteDatabase(BDCovidOpenHelper.NOME_BASE_DADOS)
@@ -90,6 +107,22 @@ class TestBaseDados {
 
         val registosApagados = tabelaVacinas.delete("${BaseColumns._ID}=?",arrayOf(vacina.id.toString()))
         assertEquals(1, registosApagados)
+
+        db.close()
+    }
+
+    @Test
+
+    fun consegueLerVacinas() {
+
+        val db = getBDCovidOpenHelper().writableDatabase
+        val tabelaVacinas = getTabelaVacinas(db)
+
+        val vacina = Vacina(nome ="Astrazeneca",quantidade = 20,data = "26/05/2021")
+        vacina.id = insertVacina(tabelaVacinas, vacina)
+
+        val vacinaBd = GetVacinaBd(tabelaVacinas, vacina.id)
+        assertEquals(vacina, vacinaBd)
 
         db.close()
     }
