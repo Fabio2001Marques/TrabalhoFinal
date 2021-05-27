@@ -267,4 +267,26 @@ class TestBaseDados {
 
     }
 
+    @Test
+
+    fun consegueAlterarEnfermeiros() {
+
+        val db = getBDCovidOpenHelper().writableDatabase
+
+        val tabelaEnfermeiro = getTabelaEnfermeiros(db)
+        val enfermeiro = Enfermeiro(nome ="Jose",morada = "Rua Principal nº47 Casais do Porto, Louriçal, Pombal",contacto = "915711186")
+        enfermeiro.id = insertEnfermeiros(tabelaEnfermeiro , enfermeiro)
+        enfermeiro.nome = "Maria"
+
+        val registosAlterados = tabelaEnfermeiro.update(
+            enfermeiro.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(enfermeiro.id.toString())
+        )
+
+        assertEquals(1, registosAlterados)
+
+        db.close()
+    }
+
 }
