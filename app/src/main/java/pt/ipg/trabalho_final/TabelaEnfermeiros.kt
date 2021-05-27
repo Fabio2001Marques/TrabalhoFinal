@@ -30,11 +30,11 @@ class TabelaEnfermeiros(db: SQLiteDatabase) {
 
     fun query(
         columns: Array<String>,
-        selection: String,
-        selectionArgs: Array<String>,
-        groupBy: String,
-        having: String,
-        orderBy: String
+        selection: String?,
+        selectionArgs: Array<String>?,
+        groupBy: String?,
+        having: String?,
+        orderBy: String?
     ): Cursor? {
         return db.query(NOME_Tabela, columns, selection, selectionArgs, groupBy, having, orderBy)
     }
@@ -44,5 +44,6 @@ class TabelaEnfermeiros(db: SQLiteDatabase) {
         const val CAMPO_NOME = "nome"
         const val CONTACTO = "contacto"
         const val MORADA = "morada"
+        val TODOS_CAMPOS = arrayOf(BaseColumns._ID,CAMPO_NOME,MORADA,CONTACTO)
     }
 }

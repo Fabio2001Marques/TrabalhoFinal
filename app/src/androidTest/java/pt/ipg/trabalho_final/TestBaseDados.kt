@@ -93,6 +93,22 @@ class TestBaseDados {
         return id
     }
 
+    private fun GetEnfermeirosBd(tabelaEnfermeiro: TabelaEnfermeiros, id: Long): Enfermeiro {
+        val cursor = tabelaEnfermeiro.query(
+            TabelaEnfermeiros.TODOS_CAMPOS,
+            "${BaseColumns._ID}=?",
+            arrayOf(id.toString()),
+            null,
+            null,
+            null
+        )
+
+        assertNotNull(cursor)
+        assert(cursor!!.moveToNext())
+
+        return Enfermeiro.fromCursor(cursor)
+
+    }
 
 
     //-----------------------------------------------------------------------------------
@@ -300,6 +316,22 @@ class TestBaseDados {
 
         val registosApagados = tabelaEnfermeiros.delete("${BaseColumns._ID}=?",arrayOf(enfermeiro.id.toString()))
         assertEquals(1, registosApagados)
+
+        db.close()
+    }
+
+    @Test
+
+    fun consegueLerEnfermeiros() {
+
+        val db = getBDCovidOpenHelper().writableDatabase
+        val tabelaEnfermeiros = getTabelaEnfermeiros(db)
+
+        val enfermeiro = Enfermeiro(nome ="Jose",morada = "Rua Principal nº47 Casais do Porto, Louriçal, Pombal",contacto = "915711186")
+        enfermeiro.id = insertEnfermeiros(tabelaEnfermeiros, enfermeiro)
+
+        val enfermeiroBd = GetEnfermeirosBd(tabelaEnfermeiros, enfermeiro.id)
+        assertEquals(enfermeiro, enfermeiroBd)
 
         db.close()
     }
