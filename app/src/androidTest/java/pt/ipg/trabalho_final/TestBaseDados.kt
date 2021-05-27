@@ -21,7 +21,6 @@ class TestBaseDados {
 
     private fun getAppContext() = InstrumentationRegistry.getInstrumentation().targetContext
     private fun getBDCovidOpenHelper() = BDCovidOpenHelper(getAppContext())
-    private fun getTabelaEnfermeiros(db: SQLiteDatabase) = TabelaEnfermeiros(db)
     private fun getTabelaDose(db: SQLiteDatabase) = TabelaDose(db)
 
     //-----------------------------------------------------------------------------------
@@ -81,6 +80,20 @@ class TestBaseDados {
         return Pessoa.fromCursor(cursor)
 
     }
+
+    //-----------------------------------------------------------------------------------
+    // Tabela Enfereiros
+    //-----------------------------------------------------------------------------------
+    private fun getTabelaEnfermeiros(db: SQLiteDatabase) = TabelaEnfermeiros(db)
+
+    private fun insertEnfermeiros(tabelaEnfermeiros: TabelaEnfermeiros, enfermeiro: Enfermeiro): Long {
+        val id = tabelaEnfermeiros.insert(enfermeiro.toContentValues())
+        assertNotEquals(-1, id)
+
+        return id
+    }
+
+
 
     //-----------------------------------------------------------------------------------
     // Testes
@@ -242,6 +255,16 @@ class TestBaseDados {
     // Tabela Enfermeiros
     //-----------------------------------------------------------------------------------
 
+    @Test
 
+    fun consegueInserirEnfermeiros(){
+
+        val db = getBDCovidOpenHelper().writableDatabase
+
+        insertEnfermeiros(getTabelaEnfermeiros(db), Enfermeiro(nome ="Andre",morada = "Rua Principal nº48 Casais do Porto, Louriçal, Pombal", contacto = "915710196"))
+
+        db.close()
+
+    }
 
 }
