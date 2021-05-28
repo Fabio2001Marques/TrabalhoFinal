@@ -122,7 +122,22 @@ class TestBaseDados {
         return id
     }
 
+    private fun GetDoseBd(tabela: TabelaDose, id: Long): Dose {
+        val cursor = tabela.query(
+            TabelaDose.TODOS_CAMPOS,
+            "${BaseColumns._ID}=?",
+            arrayOf(id.toString()),
+            null,
+            null,
+            null
+        )
 
+        assertNotNull(cursor)
+        assert(cursor!!.moveToNext())
+
+        return Dose.fromCursor(cursor)
+
+    }
 
 
     //-----------------------------------------------------------------------------------
@@ -396,6 +411,21 @@ class TestBaseDados {
 
         val registosApagados = getTabelaDose(db).delete("${BaseColumns._ID}=?",arrayOf(dose.id.toString()))
         assertEquals(1, registosApagados)
+
+        db.close()
+    }
+
+    @Test
+
+    fun consegueLerDoses() {
+
+        val db = getBDCovidOpenHelper().writableDatabase
+
+        val dose = Dose(num_dose = 1,data = 28052021, hora = "20:02",id_pessoas = 1, id_enfermeiros = 1,id_vacinas = 1)
+        dose.id = insertDoses(getTabelaDose(db), dose)
+
+        val doseBd = GetDoseBd(getTabelaDose(db), dose.id)
+        assertEquals(dose, doseBd)
 
         db.close()
     }
