@@ -115,6 +115,12 @@ class TestBaseDados {
     //-----------------------------------------------------------------------------------
     private fun getTabelaDose(db: SQLiteDatabase) = TabelaDose(db)
 
+    private fun insertDoses(tabela: TabelaDose, dose: Dose): Long {
+        val id = tabela.insert(dose.toContentValues())
+        assertNotEquals(-1, id)
+
+        return id
+    }
 
 
 
@@ -347,5 +353,17 @@ class TestBaseDados {
     //-----------------------------------------------------------------------------------
     // Tabela Doses
     //-----------------------------------------------------------------------------------
+
+    @Test
+
+    fun consegueInserirDose(){
+
+        val db = getBDCovidOpenHelper().writableDatabase
+
+        insertDoses(getTabelaDose(db), Dose(num_dose = 1,data = 28052021, hora = "20:02",id_pessoas = 1, id_enfermeiros = 1,id_vacinas = 1))
+
+        db.close()
+
+    }
 
 }
