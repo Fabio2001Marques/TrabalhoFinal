@@ -303,12 +303,11 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val tabelaEnfermeiro = getTabelaEnfermeiros(db)
         val enfermeiro = Enfermeiro(nome ="Jose",morada = "Rua Principal nº47 Casais do Porto, Louriçal, Pombal",contacto = "915711186")
-        enfermeiro.id = insertEnfermeiros(tabelaEnfermeiro , enfermeiro)
+        enfermeiro.id = insertEnfermeiros(getTabelaEnfermeiros(db) , enfermeiro)
         enfermeiro.nome = "Maria"
 
-        val registosAlterados = tabelaEnfermeiro.update(
+        val registosAlterados = getTabelaEnfermeiros(db).update(
             enfermeiro.toContentValues(),
             "${BaseColumns._ID}=?",
             arrayOf(enfermeiro.id.toString())
@@ -364,6 +363,27 @@ class TestBaseDados {
 
         db.close()
 
+    }
+
+    @Test
+
+    fun consegueAlterarDoses() {
+
+        val db = getBDCovidOpenHelper().writableDatabase
+
+        val dose = Dose(num_dose = 1,data = 28052021, hora = "20:02",id_pessoas = 1, id_enfermeiros = 1,id_vacinas = 1)
+        dose.id = insertDoses(getTabelaDose(db), dose)
+        dose.num_dose = 2
+
+        val registosAlterados = getTabelaDose(db).update(
+            dose.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(dose.id.toString())
+        )
+
+        assertEquals(1, registosAlterados)
+
+        db.close()
     }
 
 }
