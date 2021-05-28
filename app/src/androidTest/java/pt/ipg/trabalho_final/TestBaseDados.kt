@@ -21,7 +21,7 @@ class TestBaseDados {
 
     private fun getAppContext() = InstrumentationRegistry.getInstrumentation().targetContext
     private fun getBDCovidOpenHelper() = BDCovidOpenHelper(getAppContext())
-    private fun getTabelaDose(db: SQLiteDatabase) = TabelaDose(db)
+
 
     //-----------------------------------------------------------------------------------
     // Tabela Vacinas
@@ -109,6 +109,14 @@ class TestBaseDados {
         return Enfermeiro.fromCursor(cursor)
 
     }
+
+    //-----------------------------------------------------------------------------------
+    // Tabela Doses
+    //-----------------------------------------------------------------------------------
+    private fun getTabelaDose(db: SQLiteDatabase) = TabelaDose(db)
+
+
+
 
 
     //-----------------------------------------------------------------------------------
@@ -335,4 +343,9 @@ class TestBaseDados {
 
         db.close()
     }
+
+    //-----------------------------------------------------------------------------------
+    // Tabela Doses
+    //-----------------------------------------------------------------------------------
+
 }
