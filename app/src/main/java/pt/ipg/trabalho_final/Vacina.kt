@@ -8,11 +8,11 @@ import android.provider.BaseColumns
 data class Vacina (var id: Long = -1, var nome: String, var quantidade: Int, var data: String){
 
     fun toContentValues() : ContentValues {
-        val valores = ContentValues()
-
-        valores.put(TabelaVacinas.CAMPO_NOME, nome)
-        valores.put(TabelaVacinas.QUANTIDADE, quantidade)
-        valores.put(TabelaVacinas.DATA_CHEGADA, data)
+        val valores = ContentValues().apply {
+            put(TabelaVacinas.CAMPO_NOME, nome)
+            put(TabelaVacinas.QUANTIDADE, quantidade)
+            put(TabelaVacinas.DATA_CHEGADA, data)
+        }
         return valores
     }
 

@@ -8,13 +8,14 @@ import android.provider.BaseColumns
 data class Pessoa (var id: Long = -1, var nome: String, val data_nascimento: String, var morada: String, val campo_cc: String, var contacto: String){
 
     fun toContentValues() : ContentValues {
-        val valores = ContentValues()
+        val valores = ContentValues().apply {
+            put(TabelaPessoas.CAMPO_NOME, nome)
+            put(TabelaPessoas.Data_Nascimento, data_nascimento)
+            put(TabelaPessoas.MORADA, morada)
+            put(TabelaPessoas.CAMPO_CC, campo_cc)
+            put(TabelaPessoas.CONTACTO, contacto)
+        }
 
-        valores.put(TabelaPessoas.CAMPO_NOME, nome)
-        valores.put(TabelaPessoas.Data_Nascimento, data_nascimento)
-        valores.put(TabelaPessoas.MORADA, morada)
-        valores.put(TabelaPessoas.CAMPO_CC, campo_cc)
-        valores.put(TabelaPessoas.CONTACTO, contacto)
         return valores
     }
 

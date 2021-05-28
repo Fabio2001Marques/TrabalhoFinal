@@ -8,11 +8,12 @@ import android.provider.BaseColumns
 data class Enfermeiro (var id: Long = -1, var nome: String,var morada: String, var contacto: String){
 
     fun toContentValues() : ContentValues {
-        val valores = ContentValues()
+        val valores = ContentValues().apply {
+            put(TabelaEnfermeiros.CAMPO_NOME, nome)
+            put(TabelaEnfermeiros.MORADA, morada)
+            put(TabelaEnfermeiros.CONTACTO, contacto)
+        }
 
-        valores.put(TabelaEnfermeiros.CAMPO_NOME, nome)
-        valores.put(TabelaEnfermeiros.MORADA, morada)
-        valores.put(TabelaEnfermeiros.CONTACTO, contacto)
         return valores
     }
 
