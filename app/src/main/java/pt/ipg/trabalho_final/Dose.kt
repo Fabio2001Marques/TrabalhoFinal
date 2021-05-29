@@ -5,7 +5,7 @@ import android.database.Cursor
 import android.provider.BaseColumns
 
 
-data class Dose (var id: Long = -1, var num_dose: Int, val data: Int, var hora: String, val id_pessoas: Long, var id_enfermeiros: Long, var id_vacinas: Long) {
+data class Dose (var id: Long = -1, var num_dose: Int, var data: Int, var hora: String, var id_pessoas: Long, var id_enfermeiros: Long, var id_vacinas: Long) {
 
     fun toContentValues(): ContentValues {
         val valores = ContentValues().apply {

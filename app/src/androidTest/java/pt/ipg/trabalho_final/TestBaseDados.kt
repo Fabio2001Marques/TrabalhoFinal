@@ -182,7 +182,7 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val vacina = Vacina(nome ="Moderna",quantidade = 15,data = "26/05/2021")
+        val vacina = Vacina(nome ="teste",quantidade = 15,data = "26/05/2021")
         vacina.id = insertVacina(getTabelaVacinas(db), vacina)
         vacina.nome = "phizer"
 
@@ -377,10 +377,19 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val dose = Dose(num_dose = 1,data = 28052021, hora = "20:02",id_pessoas = 1, id_enfermeiros = 1,id_vacinas = 1)
+        val vacina = Vacina(nome ="Moderna",quantidade = 15,data = "26/05/2021")
+        vacina.id = insertVacina(getTabelaVacinas(db), vacina)
+
+        val pessoa = Pessoa(nome ="Jose",data_nascimento = "5/03/1970",morada = "Rua Principal nº47 Casais do Porto, Louriçal, Pombal", campo_cc = "30530747",contacto = "915710186")
+        pessoa.id = insertPessoas(getTabelaPessoas(db),pessoa )
+
+        val enfermeiro = Enfermeiro(nome ="Andre",morada = "Rua Principal nº48 Casais do Porto, Louriçal, Pombal", contacto = "915710196")
+        enfermeiro.id = insertEnfermeiros(getTabelaEnfermeiros(db), enfermeiro)
+
+        val dose = Dose(num_dose = 1,data = 28052021, hora = "20:02",id_pessoas = pessoa.id, id_enfermeiros = enfermeiro.id,id_vacinas = vacina.id)
         dose.id = insertDoses(getTabelaDose(db), dose )
 
-        assertEquals(dose, GetDoseBd(getTabelaDose(db), dose.id))
+
 
         db.close()
 

@@ -17,6 +17,7 @@ class BDCovidOpenHelper(context: Context?)
             TabelaEnfermeiros(db).cria()
             TabelaPessoas(db).cria()
             TabelaVacinas(db).cria()
+            TabelaDose(db).cria()
         }
     }
 
