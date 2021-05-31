@@ -52,6 +52,12 @@ class TestBaseDados {
 
     }
 
+    private fun criarVacina(nome: String, quantidade: Int, data: String): Vacina{
+        val vacina = Vacina(nome = nome,quantidade = quantidade,data = data)
+
+        return vacina
+    }
+
     //-----------------------------------------------------------------------------------
     // Tabela Pessoas
     //-----------------------------------------------------------------------------------
@@ -167,7 +173,7 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val vacina = Vacina(nome ="Moderna",quantidade = 15,data = "26/05/2021")
+        val vacina = criarVacina("Moderna",15, "26/05/2021")
         vacina.id = insertVacina(getTabelaVacinas(db), vacina)
 
         assertEquals(vacina, GetVacinaBd(getTabelaVacinas(db), vacina.id))
@@ -182,7 +188,7 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val vacina = Vacina(nome ="teste",quantidade = 15,data = "26/05/2021")
+        val vacina = criarVacina("teste",15, "26/05/2021")
         vacina.id = insertVacina(getTabelaVacinas(db), vacina)
         vacina.nome = "phizer"
 
@@ -203,7 +209,7 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val vacina = Vacina(nome ="Teste",quantidade = 15,data = "26/05/2021")
+        val vacina = criarVacina("Teste",15, "26/05/2021")
         vacina.id = insertVacina(getTabelaVacinas(db), vacina)
 
         val registosApagados = getTabelaVacinas(db).delete("${BaseColumns._ID}=?",arrayOf(vacina.id.toString()))
@@ -218,7 +224,7 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val vacina = Vacina(nome ="Astrazeneca",quantidade = 20,data = "26/05/2021")
+        val vacina = criarVacina("Astrazeneca",25, "26/05/2021")
         vacina.id = insertVacina(getTabelaVacinas(db), vacina)
 
         val vacinaBd = GetVacinaBd(getTabelaVacinas(db), vacina.id)
