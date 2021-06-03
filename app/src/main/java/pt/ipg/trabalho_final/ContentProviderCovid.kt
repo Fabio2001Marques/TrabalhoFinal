@@ -2,6 +2,7 @@ package pt.ipg.trabalho_final
 
 import android.content.ContentProvider
 import android.content.ContentValues
+import android.content.UriMatcher
 import android.database.Cursor
 import android.net.Uri
 
@@ -206,5 +207,44 @@ class ContentProviderCovid : ContentProvider() {
         selectionArgs: Array<out String>?
     ): Int {
         TODO("Not yet implemented")
+    }
+
+    companion object{
+
+        const val AUTHORITY = "pt.ipg.trabalho_final"
+        const val ENFERMEIROS = "enfermeiros"
+        const val PESSOAS = "pessoas"
+        const val VACINAS = "vacinas"
+        const val DOSES = "doses"
+
+        private const val URI_ENFERMEIROS = 100
+        private const val URI_ENFERMEIROS_ESPECIFICO = 101
+        private const val URI_PESSOAS = 200
+        private const val URI_PESSOAS_ESPECIFICA = 201
+        private const val URI_VACINAS = 300
+        private const val URI_VACINAS_ESPECIFICO = 301
+        private const val URI_DOSES = 400
+        private const val URI_DOSES_ESPECIFICA = 401
+
+
+        private fun getUriMatcher() : UriMatcher {
+            val uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
+
+
+            // content://pt.ipg.trabalho_final/enfermeiros
+            //content://pt.ipg.trabalho_final/enfermeiros/1
+
+
+            uriMatcher.addURI(AUTHORITY, ENFERMEIROS, URI_ENFERMEIROS)
+            uriMatcher.addURI(AUTHORITY,"$ENFERMEIROS/#", URI_ENFERMEIROS_ESPECIFICO)
+            uriMatcher.addURI(AUTHORITY, PESSOAS, URI_PESSOAS)
+            uriMatcher.addURI(AUTHORITY, "$PESSOAS/#", URI_PESSOAS_ESPECIFICA)
+            uriMatcher.addURI(AUTHORITY, VACINAS, URI_VACINAS)
+            uriMatcher.addURI(AUTHORITY,"$VACINAS/#", URI_VACINAS_ESPECIFICO)
+            uriMatcher.addURI(AUTHORITY, DOSES, URI_DOSES)
+            uriMatcher.addURI(AUTHORITY, "$DOSES/#", URI_DOSES_ESPECIFICA)
+
+            return uriMatcher
+        }
     }
 }
