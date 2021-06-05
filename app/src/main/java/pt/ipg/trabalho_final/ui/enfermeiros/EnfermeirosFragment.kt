@@ -12,7 +12,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import pt.ipg.trabalho_final.AdapterEnfermeiros
 import pt.ipg.trabalho_final.ContentProviderCovid
+import pt.ipg.trabalho_final.R
 import pt.ipg.trabalho_final.TabelaEnfermeiros
 import pt.ipg.trabalho_final.databinding.FragmentEnfermeirosBinding
 
@@ -36,11 +40,20 @@ class EnfermeirosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         _binding = FragmentEnfermeirosBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val recyclerViewLivros = view.findViewById<RecyclerView>(R.id.recyclerViewEnfermeiros)
+        recyclerViewLivros.adapter = AdapterEnfermeiros()
+        recyclerViewLivros.layoutManager = LinearLayoutManager(requireContext())
+
         val loaderManager = LoaderManager.getInstance(this)
 
         loaderManager.initLoader(ID_LOADER_MANAGER_ENFERMEIROS, null, this)
 
-        return root
     }
 
     override fun onDestroyView() {
