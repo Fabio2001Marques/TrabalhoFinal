@@ -378,6 +378,12 @@ class ContentProviderCovid : ContentProvider() {
         private const val MULTIPLOS_ITEMS = "vnd.adroid.cursor.dir"
         private const val UNICO_ITEM = "vnd.android.cursor.item"
 
+        private val ENDERECO_BASE = Uri.parse("content://$AUTHORITY")
+        public val ENDERECO_ENFERMEIROS = Uri.withAppendedPath(ENDERECO_BASE, ENFERMEIROS)
+        public val ENDERECO_PESSOAS = Uri.withAppendedPath(ENDERECO_BASE, PESSOAS)
+        public val ENDERECO_VACINAS = Uri.withAppendedPath(ENDERECO_BASE, VACINAS)
+        public val ENDERECO_DOSES = Uri.withAppendedPath(ENDERECO_BASE, DOSES)
+
         private fun getUriMatcher() : UriMatcher {
             val uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
 
