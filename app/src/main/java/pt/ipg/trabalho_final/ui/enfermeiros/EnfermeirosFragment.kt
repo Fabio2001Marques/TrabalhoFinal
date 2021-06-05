@@ -25,6 +25,8 @@ class EnfermeirosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     private lateinit var enfermeirosViewModel: EnfermeirosViewModel
     private var _binding: FragmentEnfermeirosBinding? = null
 
+    private var adapterEnfermeiros : AdapterEnfermeiros? = null
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -46,9 +48,10 @@ class EnfermeirosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val recyclerViewLivros = view.findViewById<RecyclerView>(R.id.recyclerViewEnfermeiros)
-        recyclerViewLivros.adapter = AdapterEnfermeiros()
-        recyclerViewLivros.layoutManager = LinearLayoutManager(requireContext())
+        val recyclerViewEnfermeiros = view.findViewById<RecyclerView>(R.id.recyclerViewEnfermeiros)
+        adapterEnfermeiros = AdapterEnfermeiros()
+        recyclerViewEnfermeiros.adapter = adapterEnfermeiros
+        recyclerViewEnfermeiros.layoutManager = LinearLayoutManager(requireContext())
 
         val loaderManager = LoaderManager.getInstance(this)
 
@@ -72,11 +75,11 @@ class EnfermeirosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-        TODO("Not yet implemented")
+        adapterEnfermeiros!!.cursor = data
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        TODO("Not yet implemented")
+        adapterEnfermeiros!!.cursor = null
     }
 
     companion object{
