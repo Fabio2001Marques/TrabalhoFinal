@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="pt.ipg.trabalho_final.ui.gallery.GalleryFragment"
+        android:name="pt.ipg.trabalho_final.ui.enfermeiros.EnfermeirosFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_Enfermeiros" />
 
     <fragment
         android:id="@+id/nav_slideshow"
