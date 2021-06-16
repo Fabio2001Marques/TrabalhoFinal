@@ -1,31 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" >
 
     <TextView
-        android:id="@+id/textViewId"
-        android:layout_width="match_parent"
+        android:id="@+id/textViewEnfermeirosNome"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="5"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        tools:text="1" />
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="André Sousa Martins" />
 
     <TextView
-        android:id="@+id/textViewNome"
-        android:layout_width="match_parent"
+        android:id="@+id/textViewEnfermeirosContato"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        tools:text="Andre Sousa Freitas" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toEndOf="@+id/textViewEnfermeirosNome"
+        app:layout_constraintTop_toTopOf="@+id/textViewEnfermeirosNome"
+        tools:text="915710186" />
 
     <TextView
-        android:id="@+id/textViewContacto"
-        android:layout_width="match_parent"
+        android:id="@+id/textViewEnfermeirosMorada"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        tools:text="963535355" />
-
-</LinearLayout>
+        android:layout_marginTop="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toStartOf="@+id/textViewEnfermeirosNome"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEnfermeirosNome"
+        tools:text="Rua Principal nº47 Casais do Porto, Louriçal, Pombal" />
+</androidx.constraintlayout.widget.ConstraintLayout>
