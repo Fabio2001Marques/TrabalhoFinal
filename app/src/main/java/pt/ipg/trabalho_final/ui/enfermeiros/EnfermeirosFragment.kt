@@ -47,7 +47,7 @@ class EnfermeirosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerViewEnfermeiros = view.findViewById<RecyclerView>(R.id.recyclerViewEnfermeiros)
-        adapterEnfermeiros = AdapterEnfermeiros()
+        adapterEnfermeiros = AdapterEnfermeiros(this)
         recyclerViewEnfermeiros.adapter = adapterEnfermeiros
         recyclerViewEnfermeiros.layoutManager = LinearLayoutManager(requireContext())
 

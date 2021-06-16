@@ -47,7 +47,7 @@ class PessoasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerViewPessoas = view.findViewById<RecyclerView>(R.id.recyclerViewPessoas)
-        adapterPessoas = AdapterPessoas()
+        adapterPessoas = AdapterPessoas(this)
         recyclerViewPessoas.adapter = adapterPessoas
         recyclerViewPessoas.layoutManager = LinearLayoutManager(requireContext())
 
