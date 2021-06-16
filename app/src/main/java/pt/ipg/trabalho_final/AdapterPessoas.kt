@@ -21,6 +21,6 @@ class AdapterPessoas (var cursor : Cursor? = null) : RecyclerView.Adapter<Adapte
 
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return cursor?.count ?: 0
     }
 }

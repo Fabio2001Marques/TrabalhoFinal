@@ -21,6 +21,6 @@ class AdapterEnfermeiros (var cursor : Cursor? = null) : RecyclerView.Adapter<Ad
 
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return cursor?.count ?: 0
     }
 }
