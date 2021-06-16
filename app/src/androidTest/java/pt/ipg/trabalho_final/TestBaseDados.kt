@@ -52,7 +52,7 @@ class TestBaseDados {
 
     }
 
-    private fun criarVacina(nome: String, quantidade: Int, data: String): Vacina{
+    private fun criarVacina(nome: String, quantidade: Int, data: Int): Vacina{
         val vacina = Vacina(nome = nome,quantidade = quantidade,data = data)
 
         return vacina
@@ -87,8 +87,8 @@ class TestBaseDados {
 
     }
 
-    private fun criarPessoa(nome: String, data_nascimento: String, morada: String, campo_cc: String, contacto: String) : Pessoa{
-        val pessoa = Pessoa(nome ="Jose",data_nascimento = "5/03/1970",morada = "Rua Principal nº47 Casais do Porto, Louriçal, Pombal", campo_cc = "30530747",contacto = "915710186")
+    private fun criarPessoa(nome: String, data_nascimento: Int, morada: String, campo_cc: String, contacto: String) : Pessoa{
+        val pessoa = Pessoa(nome ="Jose",data_nascimento = 5032021,morada = "Rua Principal nº47 Casais do Porto, Louriçal, Pombal", campo_cc = "30530747",contacto = "915710186")
 
         return pessoa
     }
@@ -179,7 +179,7 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val vacina = criarVacina("Moderna",15, "26/05/2021")
+        val vacina = criarVacina("Moderna",15, 5032021)
         vacina.id = insertVacina(getTabelaVacinas(db), vacina)
 
         assertEquals(vacina, GetVacinaBd(getTabelaVacinas(db), vacina.id))
@@ -194,7 +194,7 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val vacina = criarVacina("teste",15, "26/05/2021")
+        val vacina = criarVacina("teste",15, 5032021)
         vacina.id = insertVacina(getTabelaVacinas(db), vacina)
         vacina.nome = "phizer"
 
@@ -215,7 +215,7 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val vacina = criarVacina("Teste",15, "26/05/2021")
+        val vacina = criarVacina("Teste",15, 5032021)
         vacina.id = insertVacina(getTabelaVacinas(db), vacina)
 
         val registosApagados = getTabelaVacinas(db).delete("${BaseColumns._ID}=?",arrayOf(vacina.id.toString()))
@@ -230,7 +230,7 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val vacina = criarVacina("Astrazeneca",25, "26/05/2021")
+        val vacina = criarVacina("Astrazeneca",25, 5032021)
         vacina.id = insertVacina(getTabelaVacinas(db), vacina)
 
         val vacinaBd = GetVacinaBd(getTabelaVacinas(db), vacina.id)
@@ -249,7 +249,7 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val pessoa = criarPessoa("Jose","25/05/2021","Rua Principal nº47 Casais do Porto, Louriçal, Pombal","23696324","963532342")
+        val pessoa = criarPessoa("Jose",5032021,"Rua Principal nº47 Casais do Porto, Louriçal, Pombal","23696324","963532342")
         pessoa.id = insertPessoas(getTabelaPessoas(db),pessoa )
 
         assertEquals(pessoa, GetPessoasBd(getTabelaPessoas(db), pessoa.id))
@@ -264,7 +264,7 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val pessoa = criarPessoa("Jose","25/05/2021","Rua Principal nº47 Casais do Porto, Louriçal, Pombal","23696324","963532342")
+        val pessoa = criarPessoa("Jose",5032021,"Rua Principal nº47 Casais do Porto, Louriçal, Pombal","23696324","963532342")
         pessoa.id = insertPessoas(getTabelaPessoas(db), pessoa)
         pessoa.nome = "Maria"
 
@@ -284,7 +284,7 @@ class TestBaseDados {
     fun consegueApagarPessoas() {
 
         val db = getBDCovidOpenHelper().writableDatabase
-        val pessoa = criarPessoa("Jose","25/05/2021","Rua Principal nº47 Casais do Porto, Louriçal, Pombal","23696324","963532342")
+        val pessoa = criarPessoa("Jose",5032021,"Rua Principal nº47 Casais do Porto, Louriçal, Pombal","23696324","963532342")
         pessoa.id = insertPessoas(getTabelaPessoas(db), pessoa)
 
         val registosApagados = getTabelaPessoas(db).delete("${BaseColumns._ID}=?",arrayOf(pessoa.id.toString()))
@@ -299,7 +299,7 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val pessoa = criarPessoa("Jose","25/05/2021","Rua Principal nº47 Casais do Porto, Louriçal, Pombal","23696324","963532342")
+        val pessoa = criarPessoa("Jose",5032021,"Rua Principal nº47 Casais do Porto, Louriçal, Pombal","23696324","963532342")
         pessoa.id = insertPessoas(getTabelaPessoas(db), pessoa)
 
         val pessoaBd = GetPessoasBd(getTabelaPessoas(db), pessoa.id)
@@ -389,16 +389,16 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val vacina = Vacina(nome ="Moderna",quantidade = 15,data = "26/05/2021")
+        val vacina = Vacina(nome ="Moderna",quantidade = 15,data = 5032021)
         vacina.id = insertVacina(getTabelaVacinas(db), vacina)
 
-        val pessoa = Pessoa(nome ="Jose",data_nascimento = "5/03/1970",morada = "Rua Principal nº47 Casais do Porto, Louriçal, Pombal", campo_cc = "30530747",contacto = "915710186")
+        val pessoa = Pessoa(nome ="Jose",data_nascimento = 5032021,morada = "Rua Principal nº47 Casais do Porto, Louriçal, Pombal", campo_cc = "30530747",contacto = "915710186")
         pessoa.id = insertPessoas(getTabelaPessoas(db),pessoa )
 
         val enfermeiro = Enfermeiro(nome ="Andre",morada = "Rua Principal nº48 Casais do Porto, Louriçal, Pombal", contacto = "915710196")
         enfermeiro.id = insertEnfermeiros(getTabelaEnfermeiros(db), enfermeiro)
 
-        val dose = Dose(num_dose = 1,data = 28052021, hora = "20:02",id_pessoas = pessoa.id, id_enfermeiros = enfermeiro.id,id_vacinas = vacina.id)
+        val dose = Dose(num_dose = 1,data = 28052021, hora = 2002,id_pessoas = pessoa.id, id_enfermeiros = enfermeiro.id,id_vacinas = vacina.id)
         dose.id = insertDoses(getTabelaDose(db), dose )
 
 
@@ -413,7 +413,7 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val dose = Dose(num_dose = 1,data = 28052021, hora = "20:02",id_pessoas = 1, id_enfermeiros = 1,id_vacinas = 1)
+        val dose = Dose(num_dose = 1,data = 28052021, hora = 2002,id_pessoas = 1, id_enfermeiros = 1,id_vacinas = 1)
         dose.id = insertDoses(getTabelaDose(db), dose)
         dose.num_dose = 2
 
@@ -433,7 +433,7 @@ class TestBaseDados {
     fun consegueApagarDose() {
 
         val db = getBDCovidOpenHelper().writableDatabase
-        val dose = Dose(num_dose = 1,data = 28052021, hora = "20:02",id_pessoas = 1, id_enfermeiros = 1,id_vacinas = 1)
+        val dose = Dose(num_dose = 1,data = 28052021, hora = 2002,id_pessoas = 1, id_enfermeiros = 1,id_vacinas = 1)
         dose.id = insertDoses(getTabelaDose(db), dose)
 
         val registosApagados = getTabelaDose(db).delete("${BaseColumns._ID}=?",arrayOf(dose.id.toString()))
@@ -448,7 +448,7 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val dose = Dose(num_dose = 1,data = 28052021, hora = "20:02",id_pessoas = 1, id_enfermeiros = 1,id_vacinas = 1)
+        val dose = Dose(num_dose = 1,data = 28052021, hora = 2002,id_pessoas = 1, id_enfermeiros = 1,id_vacinas = 1)
         dose.id = insertDoses(getTabelaDose(db), dose)
 
         val doseBd = GetDoseBd(getTabelaDose(db), dose.id)

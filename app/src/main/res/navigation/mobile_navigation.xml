@@ -14,12 +14,12 @@
     <fragment
         android:id="@+id/nav_gallery"
         android:name="pt.ipg.trabalho_final.ui.enfermeiros.EnfermeirosFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_Enfermeiros" />
+        android:label="@string/menu_enfermeiros"
+        tools:layout="@layout/fragment_enfermeiros" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="pt.ipg.trabalho_final.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:name="pt.ipg.trabalho_final.ui.pessoas.PessoasFragment"
+        android:label="@string/menu_pessoas"
+        tools:layout="@layout/fragment_pessoas" />
 </navigation>
