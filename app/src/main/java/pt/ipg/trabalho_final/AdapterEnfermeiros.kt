@@ -7,7 +7,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import pt.ipg.trabalho_final.ui.enfermeiros.EnfermeirosFragment
 
-class AdapterEnfermeiros (val fragment: EnfermeirosFragment, var cursor : Cursor? = null) : RecyclerView.Adapter<AdapterEnfermeiros.ViewHolderEnfermeiro>() {
+class AdapterEnfermeiros (val fragment: EnfermeirosFragment) : RecyclerView.Adapter<AdapterEnfermeiros.ViewHolderEnfermeiro>() {
+
+     var cursor: Cursor? = null
+        get() = field
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
     class ViewHolderEnfermeiro(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val textViewNome = itemView.findViewById<TextView>(R.id.textViewEnfermeirosNome)
         private val textViewContato = itemView.findViewById<TextView>(R.id.textViewEnfermeirosContato)

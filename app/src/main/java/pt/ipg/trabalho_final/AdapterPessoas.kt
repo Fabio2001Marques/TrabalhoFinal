@@ -7,7 +7,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import pt.ipg.trabalho_final.ui.pessoas.PessoasFragment
 
-class AdapterPessoas (val fragment: PessoasFragment,var cursor : Cursor? = null) : RecyclerView.Adapter<AdapterPessoas.ViewHolderPessoa>() {
+class AdapterPessoas (val fragment: PessoasFragment) : RecyclerView.Adapter<AdapterPessoas.ViewHolderPessoa>() {
+
+     var cursor: Cursor? = null
+        get() = field
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
     class ViewHolderPessoa(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val textViewNome = itemView.findViewById<TextView>(R.id.textViewPessoaNome)
         private val textViewNascimento = itemView.findViewById<TextView>(R.id.textViewPessoaNascimento)
