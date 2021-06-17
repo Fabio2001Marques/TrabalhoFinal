@@ -156,10 +156,10 @@ class TestBaseDados {
     // Testes
     //-----------------------------------------------------------------------------------
 
-    /*@Before
+    @Before
     fun apagaBaseDados(){
         getAppContext().deleteDatabase(BDCovidOpenHelper.NOME_BASE_DADOS)
-    }*/
+    }
 
     @Test
     fun consegueAbrirBaseDados() {

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="24dp">
 
     <TextView
         android:id="@+id/textViewPessoaNome"
@@ -13,6 +14,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="André Sousa Martins" />
@@ -26,6 +28,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/textViewPessoaContacto"
         app:layout_constraintStart_toEndOf="@+id/textViewPessoaNome"
         app:layout_constraintTop_toTopOf="@+id/textViewPessoaNome"
@@ -40,6 +43,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewPessoaNascimento"
         app:layout_constraintTop_toTopOf="@+id/textViewPessoaNascimento"
@@ -51,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/textViewPessoaNome"
         app:layout_constraintTop_toBottomOf="@+id/textViewPessoaNome"
         tools:text="Rua Principal nº47 Casais do Porto, Louriçal, Pombal" />

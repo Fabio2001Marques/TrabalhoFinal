@@ -16,17 +16,39 @@ class AdapterPessoas (val fragment: PessoasFragment) : RecyclerView.Adapter<Adap
             notifyDataSetChanged()
         }
 
-    class ViewHolderPessoa(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolderPessoa(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener  {
         private val textViewNome = itemView.findViewById<TextView>(R.id.textViewPessoaNome)
         private val textViewNascimento = itemView.findViewById<TextView>(R.id.textViewPessoaNascimento)
         private val textViewContato = itemView.findViewById<TextView>(R.id.textViewPessoaContacto)
         private val textViewMorada = itemView.findViewById<TextView>(R.id.textViewPessoaMorada)
+
+        init {
+            itemView.setOnClickListener(this)
+        }
 
         fun atualizaPessoa(pessoa: Pessoa) {
             textViewNome.text = pessoa.nome
             textViewNascimento.text = pessoa.data_nascimento.toString()
             textViewContato.text = pessoa.contacto
             textViewMorada.text = pessoa.morada
+        }
+
+        override fun onClick(v: View?) {
+            selecionado?.desSeleciona()
+            seleciona()
+        }
+        private fun seleciona() {
+            selecionado = this
+            itemView.setBackgroundResource(R.color.cor_selecao)
+        }
+
+        private fun desSeleciona() {
+            selecionado = null
+            itemView.setBackgroundResource(android.R.color.white)
+        }
+
+        companion object {
+            var selecionado : ViewHolderPessoa? = null
         }
     }
 
