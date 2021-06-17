@@ -12,13 +12,28 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/ListaEnfermeirosFragment"
         android:name="pt.ipg.trabalho_final.ui.enfermeiros.EnfermeirosFragment"
         android:label="@string/menu_enfermeiros"
-        tools:layout="@layout/fragment_enfermeiros" />
+        tools:layout="@layout/fragment_enfermeiros">
+    <action
+        android:id="@+id/action_ListaEnfermeirosFragment_to_NovoEnfermeiroFragment"
+        app:destination="@id/NovoEnfermeiroFragment" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/NovoEnfermeiroFragment"
+        android:name="pt.ipg.trabalho_final.ui.enfermeiros.NovoEnfermeiroFragment"
+        android:label="@string/novo_enfermeiro"
+        tools:layout="@layout/fragment_novo_enfermeiro">
+
+        <action
+            android:id="@+id/action_NovoEnfermeiroFragment_to_ListaEnfermeirosFragment"
+            app:destination="@id/ListaEnfermeirosFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_pessoas"
         android:name="pt.ipg.trabalho_final.ui.pessoas.PessoasFragment"
         android:label="@string/menu_pessoas"
         tools:layout="@layout/fragment_pessoas" />

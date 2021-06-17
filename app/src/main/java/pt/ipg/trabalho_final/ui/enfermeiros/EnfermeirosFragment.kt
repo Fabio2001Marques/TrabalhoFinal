@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pt.ipg.trabalho_final.AdapterEnfermeiros
@@ -55,6 +56,10 @@ class EnfermeirosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
         loaderManager.initLoader(ID_LOADER_MANAGER_ENFERMEIROS, null, this)
 
+    }
+
+    fun navegaNovoLivro() {
+        findNavController().navigate(R.id.action_ListaEnfermeirosFragment_to_NovoEnfermeiroFragment)
     }
 
     override fun onDestroyView() {
