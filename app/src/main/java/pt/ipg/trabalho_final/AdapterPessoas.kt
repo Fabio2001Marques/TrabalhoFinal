@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import pt.ipg.trabalho_final.ui.DadosApp
 import pt.ipg.trabalho_final.ui.pessoas.PessoasFragment
 
 class AdapterPessoas (val fragment: PessoasFragment) : RecyclerView.Adapter<AdapterPessoas.ViewHolderPessoa>() {
@@ -22,11 +23,15 @@ class AdapterPessoas (val fragment: PessoasFragment) : RecyclerView.Adapter<Adap
         private val textViewContato = itemView.findViewById<TextView>(R.id.textViewPessoaContacto)
         private val textViewMorada = itemView.findViewById<TextView>(R.id.textViewPessoaMorada)
 
+        private lateinit var pessoa: Pessoa
+
         init {
             itemView.setOnClickListener(this)
         }
 
         fun atualizaPessoa(pessoa: Pessoa) {
+            this.pessoa = pessoa
+
             textViewNome.text = pessoa.nome
             textViewNascimento.text = pessoa.data_nascimento.toString()
             textViewContato.text = pessoa.contacto
@@ -40,6 +45,7 @@ class AdapterPessoas (val fragment: PessoasFragment) : RecyclerView.Adapter<Adap
         private fun seleciona() {
             selecionado = this
             itemView.setBackgroundResource(R.color.cor_selecao)
+            DadosApp.pessoaSelecionada = pessoa
         }
 
         private fun desSeleciona() {

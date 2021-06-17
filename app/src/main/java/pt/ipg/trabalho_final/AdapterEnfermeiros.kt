@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import pt.ipg.trabalho_final.ui.DadosApp
 import pt.ipg.trabalho_final.ui.enfermeiros.EnfermeirosFragment
 
 class AdapterEnfermeiros (val fragment: EnfermeirosFragment) : RecyclerView.Adapter<AdapterEnfermeiros.ViewHolderEnfermeiro>() {
@@ -21,11 +22,15 @@ class AdapterEnfermeiros (val fragment: EnfermeirosFragment) : RecyclerView.Adap
         private val textViewContato = itemView.findViewById<TextView>(R.id.textViewEnfermeirosContato)
         private val textViewMorada = itemView.findViewById<TextView>(R.id.textViewEnfermeirosMorada)
 
+        private lateinit var enfermeiro: Enfermeiro
+
         init {
             itemView.setOnClickListener(this)
         }
 
         fun atualizaEnfermeiro(enfermeiro: Enfermeiro) {
+            this.enfermeiro =enfermeiro
+
             textViewNome.text = enfermeiro.nome
             textViewContato.text = enfermeiro.contacto
             textViewMorada.text = enfermeiro.morada
@@ -39,6 +44,7 @@ class AdapterEnfermeiros (val fragment: EnfermeirosFragment) : RecyclerView.Adap
         private fun seleciona() {
             selecionado = this
             itemView.setBackgroundResource(R.color.cor_selecao)
+            DadosApp.enfermeiroSelecionado = enfermeiro
         }
 
         private fun desSeleciona() {
