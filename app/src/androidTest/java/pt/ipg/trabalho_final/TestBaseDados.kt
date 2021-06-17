@@ -88,7 +88,7 @@ class TestBaseDados {
     }
 
     private fun criarPessoa(nome: String, data_nascimento: Int, morada: String, campo_cc: String, contacto: String) : Pessoa{
-        val pessoa = Pessoa(nome ="Jose",data_nascimento = 5032021,morada = "Rua Principal nº47 Casais do Porto, Louriçal, Pombal", campo_cc = "30530747",contacto = "915710186")
+        val pessoa = Pessoa(nome ="Jose Manuel Silva",data_nascimento = 5032021,morada = "Rua Principal nº47 Casais do Porto, Louriçal, Pombal", campo_cc = "30530747",contacto = "915710186")
 
         return pessoa
     }
@@ -249,7 +249,7 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val pessoa = criarPessoa("Jose",5032021,"Rua Principal nº47 Casais do Porto, Louriçal, Pombal","23696324","963532342")
+        val pessoa = criarPessoa("Jose Manuel Silva",5032021,"Rua Principal nº47 Casais do Porto, Louriçal, Pombal","23696324","963532342")
         pessoa.id = insertPessoas(getTabelaPessoas(db),pessoa )
 
         assertEquals(pessoa, GetPessoasBd(getTabelaPessoas(db), pessoa.id))
@@ -264,7 +264,7 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val pessoa = criarPessoa("Jose",5032021,"Rua Principal nº47 Casais do Porto, Louriçal, Pombal","23696324","963532342")
+        val pessoa = criarPessoa("Jose Manuel Silva",5032021,"Rua Principal nº47 Casais do Porto, Louriçal, Pombal","23696324","963532342")
         pessoa.id = insertPessoas(getTabelaPessoas(db), pessoa)
         pessoa.nome = "Maria"
 
@@ -284,7 +284,7 @@ class TestBaseDados {
     fun consegueApagarPessoas() {
 
         val db = getBDCovidOpenHelper().writableDatabase
-        val pessoa = criarPessoa("Jose",5032021,"Rua Principal nº47 Casais do Porto, Louriçal, Pombal","23696324","963532342")
+        val pessoa = criarPessoa("Teste",5032021,"Rua Principal nº47 Casais do Porto, Louriçal, Pombal","23696324","963532342")
         pessoa.id = insertPessoas(getTabelaPessoas(db), pessoa)
 
         val registosApagados = getTabelaPessoas(db).delete("${BaseColumns._ID}=?",arrayOf(pessoa.id.toString()))
