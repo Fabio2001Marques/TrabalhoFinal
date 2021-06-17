@@ -2,22 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_novo_enfermeiros"
+        android:id="@+id/action_novo_pessoas"
         android:icon="@android:drawable/ic_input_add"
         android:orderInCategory="100"
-        android:title="@string/novo_enfermeiro"
+        android:title="@string/nova_pessoa"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_alterar_enfermeiros"
+        android:id="@+id/action_alterar_pessoas"
         android:icon="@android:drawable/ic_menu_edit"
         android:orderInCategory="101"
-        android:title="@string/alterar_enfermeiro"
+        android:title="@string/alterar_pessoa"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_eliminar_enfermeiro"
+        android:id="@+id/action_eliminar_pessoas"
         android:icon="@android:drawable/ic_menu_delete"
         android:orderInCategory="102"
-        android:title="@string/eliminar_enfermeiro"
+        android:title="@string/eliminar_pessoa"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_settings"
