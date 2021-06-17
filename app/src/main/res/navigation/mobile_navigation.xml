@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/ListaEnfermeirosFragment"
-        android:name="pt.ipg.trabalho_final.ui.enfermeiros.EnfermeirosFragment"
+        android:name="pt.ipg.trabalho_final.ui.enfermeiros.ListaEnfermeirosFragment"
         android:label="@string/menu_enfermeiros"
         tools:layout="@layout/fragment_enfermeiros">
     <action

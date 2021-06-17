@@ -3,6 +3,7 @@ package pt.ipg.trabalho_final.ui.enfermeiros
 import android.database.Cursor
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -13,13 +14,10 @@ import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import pt.ipg.trabalho_final.AdapterEnfermeiros
-import pt.ipg.trabalho_final.ContentProviderCovid
-import pt.ipg.trabalho_final.R
-import pt.ipg.trabalho_final.TabelaEnfermeiros
+import pt.ipg.trabalho_final.*
 import pt.ipg.trabalho_final.databinding.FragmentEnfermeirosBinding
 
-class EnfermeirosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
+class ListaEnfermeirosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     private lateinit var enfermeirosViewModel: EnfermeirosViewModel
     private var _binding: FragmentEnfermeirosBinding? = null
@@ -35,6 +33,8 @@ class EnfermeirosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        DadosApp.listaEnfermeirosFragment = this
+
         enfermeirosViewModel =
             ViewModelProvider(this).get(EnfermeirosViewModel::class.java)
 
@@ -58,8 +58,27 @@ class EnfermeirosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     }
 
-    fun navegaNovoLivro() {
+    fun navegaNovoEnfermeiro() {
         findNavController().navigate(R.id.action_ListaEnfermeirosFragment_to_NovoEnfermeiroFragment)
+    }
+
+    fun navegaAlterarEnfermeiro() {
+        //todo: navegar para o fragmento da edição de um enfermeiro
+    }
+
+    fun navegaEliminarEnfermeiro() {
+        //todo: navegar para o fragmento para confirmar eliminação de um enfermeiro
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_novo_enfermeiros -> navegaNovoEnfermeiro()
+            R.id.action_alterar_enfermeiros -> navegaAlterarEnfermeiro()
+            R.id.action_eliminar_enfermeiro -> navegaEliminarEnfermeiro()
+            else -> return false
+        }
+
+        return true
     }
 
     override fun onDestroyView() {

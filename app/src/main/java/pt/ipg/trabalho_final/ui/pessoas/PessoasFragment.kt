@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
@@ -16,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pt.ipg.trabalho_final.*
 import pt.ipg.trabalho_final.databinding.FragmentPessoasBinding
-import pt.ipg.trabalho_final.ui.enfermeiros.EnfermeirosFragment
 
 class PessoasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
 

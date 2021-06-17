@@ -5,10 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import pt.ipg.trabalho_final.ui.DadosApp
-import pt.ipg.trabalho_final.ui.enfermeiros.EnfermeirosFragment
+import pt.ipg.trabalho_final.ui.enfermeiros.ListaEnfermeirosFragment
 
-class AdapterEnfermeiros (val fragment: EnfermeirosFragment) : RecyclerView.Adapter<AdapterEnfermeiros.ViewHolderEnfermeiro>() {
+class AdapterEnfermeiros (val fragment: ListaEnfermeirosFragment) : RecyclerView.Adapter<AdapterEnfermeiros.ViewHolderEnfermeiro>() {
 
      var cursor: Cursor? = null
         get() = field

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.enfermeiros.EnfermeirosFragment" >
+    tools:context=".ui.enfermeiros.ListaEnfermeirosFragment" >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewEnfermeiros"

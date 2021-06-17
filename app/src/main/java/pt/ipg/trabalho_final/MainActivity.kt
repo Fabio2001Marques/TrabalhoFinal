@@ -2,6 +2,7 @@ package pt.ipg.trabalho_final
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -12,7 +13,6 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import pt.ipg.trabalho_final.databinding.ActivityMainBinding
-import pt.ipg.trabalho_final.ui.DadosApp
 
 class MainActivity : AppCompatActivity() {
 
@@ -54,6 +54,22 @@ class MainActivity : AppCompatActivity() {
         this.menu = menu
         atualizaMenuListaEnfermeiros(false)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        return when (item.itemId) {
+            R.id.action_settings -> true
+            else -> {
+                if (DadosApp.listaEnfermeirosFragment.processaOpcaoMenu(item)) {
+                    return true
+                } else {
+                    return super.onOptionsItemSelected(item)
+                }
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

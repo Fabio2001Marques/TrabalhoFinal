@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import pt.ipg.trabalho_final.ui.DadosApp
 import pt.ipg.trabalho_final.ui.pessoas.PessoasFragment
 
 class AdapterPessoas (val fragment: PessoasFragment) : RecyclerView.Adapter<AdapterPessoas.ViewHolderPessoa>() {
