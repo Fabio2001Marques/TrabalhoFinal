@@ -16,15 +16,38 @@ class AdapterEnfermeiros (val fragment: EnfermeirosFragment) : RecyclerView.Adap
             notifyDataSetChanged()
         }
 
-    class ViewHolderEnfermeiro(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolderEnfermeiro(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         private val textViewNome = itemView.findViewById<TextView>(R.id.textViewEnfermeirosNome)
         private val textViewContato = itemView.findViewById<TextView>(R.id.textViewEnfermeirosContato)
         private val textViewMorada = itemView.findViewById<TextView>(R.id.textViewEnfermeirosMorada)
+
+        init {
+            itemView.setOnClickListener(this)
+        }
 
         fun atualizaEnfermeiro(enfermeiro: Enfermeiro) {
             textViewNome.text = enfermeiro.nome
             textViewContato.text = enfermeiro.contacto
             textViewMorada.text = enfermeiro.morada
+        }
+
+        override fun onClick(v: View?) {
+            selecionado?.desSeleciona()
+            seleciona()
+        }
+
+        private fun seleciona() {
+            selecionado = this
+            itemView.setBackgroundResource(R.color.cor_selecao)
+        }
+
+        private fun desSeleciona() {
+            selecionado = null
+            itemView.setBackgroundResource(android.R.color.white)
+        }
+
+        companion object {
+            var selecionado : ViewHolderEnfermeiro? = null
         }
     }
 

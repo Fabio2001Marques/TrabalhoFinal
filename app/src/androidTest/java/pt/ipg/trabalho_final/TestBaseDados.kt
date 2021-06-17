@@ -156,10 +156,10 @@ class TestBaseDados {
     // Testes
     //-----------------------------------------------------------------------------------
 
-    @Before
+    /*@Before
     fun apagaBaseDados(){
         getAppContext().deleteDatabase(BDCovidOpenHelper.NOME_BASE_DADOS)
-    }
+    }*/
 
     @Test
     fun consegueAbrirBaseDados() {
@@ -319,8 +319,11 @@ class TestBaseDados {
 
         val db = getBDCovidOpenHelper().writableDatabase
 
-        val enfermeiro = Enfermeiro(nome ="Andre",morada = "Rua Principal nº48 Casais do Porto, Louriçal, Pombal", contacto = "915710196")
+        val enfermeiro = Enfermeiro(nome ="Andre Sousa Martins",morada = "Rua Principal nº48 Casais do Porto, Louriçal, Pombal", contacto = "915710196")
         enfermeiro.id = insertEnfermeiros(getTabelaEnfermeiros(db), enfermeiro)
+
+        val enfermeiro2 = Enfermeiro(nome ="Carla Silva Lopes",morada = "Rua Principal nº48 Casais do Porto, Louriçal, Pombal", contacto = "915710196")
+        enfermeiro2.id = insertEnfermeiros(getTabelaEnfermeiros(db), enfermeiro2)
 
         assertEquals(enfermeiro, GetEnfermeirosBd(getTabelaEnfermeiros(db), enfermeiro.id))
 

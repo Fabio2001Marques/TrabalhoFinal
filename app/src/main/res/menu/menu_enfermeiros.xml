@@ -16,11 +16,12 @@
     <item
         android:id="@+id/action_eliminar_enfermeiro"
         android:icon="@android:drawable/ic_menu_delete"
+        android:orderInCategory="102"
         android:title="@string/eliminar_enfermeiro"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="102"
+        android:orderInCategory="103"
         android:title="@string/action_settings"
         app:showAsAction="never" />
 </menu>
