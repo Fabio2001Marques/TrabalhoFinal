@@ -16,4 +16,10 @@
     <string name="nova_pessoa">Nova Pessoa</string>
     <string name="alterar_pessoa">Alterar Pessoa</string>
     <string name="eliminar_pessoa">Eliminar Pessoa</string>
+    <string name="novo">Novo</string>
+    <string name="alterar">Alterar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="nome">Nome</string>
+    <string name="contacto">Contacto</string>
+    <string name="morada">Morada</string>
 </resources>
