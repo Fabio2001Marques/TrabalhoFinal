@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_home, R.id.ListaEnfermeirosFragment, R.id.nav_pessoas
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> {
-                if (DadosApp.listaEnfermeirosFragment.processaOpcaoMenu(item)) {
+                if (DadosApp.listaEnfermeirosFragment != null && DadosApp.listaEnfermeirosFragment!!.processaOpcaoMenu(item)) {
                     return true
                 } else {
                     return super.onOptionsItemSelected(item)
