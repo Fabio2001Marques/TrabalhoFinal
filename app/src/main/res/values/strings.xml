@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">trabalho_final</string>
+    <string name="app_name">Enfermeiros</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -22,4 +22,6 @@
     <string name="nome">Nome</string>
     <string name="contacto">Contacto</string>
     <string name="morada">Morada</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
 </resources>
