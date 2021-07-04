@@ -34,6 +34,7 @@ class ListaEnfermeirosFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
         savedInstanceState: Bundle?
     ): View? {
         DadosApp.listaEnfermeirosFragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_enfermeiros
 
         enfermeirosViewModel =
             ViewModelProvider(this).get(EnfermeirosViewModel::class.java)

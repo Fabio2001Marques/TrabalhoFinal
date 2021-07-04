@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import pt.ipg.trabalho_final.DadosApp
+import pt.ipg.trabalho_final.MainActivity
+import pt.ipg.trabalho_final.R
 import pt.ipg.trabalho_final.databinding.FragmentNovoEnfermeiroBinding
 
 class NovoEnfermeiroFragment : Fragment() {
@@ -19,6 +22,8 @@ class NovoEnfermeiroFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        DadosApp.novoEnfermeiroFragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_novo_enfermeiro
 
         _binding = FragmentNovoEnfermeiroBinding.inflate(inflater, container, false)
         return binding.root
