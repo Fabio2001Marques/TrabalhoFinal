@@ -24,4 +24,6 @@
     <string name="morada">Morada</string>
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
+
+    <string name="versao">Covid v. 1.0</string>
 </resources>

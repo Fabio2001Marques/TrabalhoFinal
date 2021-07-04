@@ -3,6 +3,7 @@ package pt.ipg.trabalho_final
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -68,16 +69,21 @@ class MainActivity : AppCompatActivity() {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> {
-                if (DadosApp.listaEnfermeirosFragment != null && DadosApp.listaEnfermeirosFragment!!.processaOpcaoMenu(item)) {
-                    return true
-                } else {
-                    return super.onOptionsItemSelected(item)
-                }
+        val opcaoProcessada = when (item.itemId) {
+            R.id.action_settings -> {
+                Toast.makeText(this, R.string.versao, Toast.LENGTH_LONG).show()
+                true
+            }
+
+            else -> when(menuAtual) {
+                R.menu.menu_enfermeiros -> DadosApp.listaEnfermeirosFragment!!.processaOpcaoMenu(item)
+                R.menu.menu_novo_enfermeiro -> DadosApp.novoEnfermeiroFragment!!.processaOpcaoMenu(item)
+                else -> false
             }
         }
+
+        return if(opcaoProcessada) true else super.onOptionsItemSelected(item)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
