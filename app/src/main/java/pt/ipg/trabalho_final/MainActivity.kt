@@ -14,6 +14,9 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import pt.ipg.trabalho_final.databinding.ActivityMainBinding
+import pt.ipg.trabalho_final.ui.enfermeiros.EditaEnfermeiroFragment
+import pt.ipg.trabalho_final.ui.enfermeiros.ListaEnfermeirosFragment
+import pt.ipg.trabalho_final.ui.enfermeiros.NovoEnfermeiroFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -70,17 +73,6 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
 
-        /*return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> {
-                if (DadosApp.listaEnfermeirosFragment != null && DadosApp.listaEnfermeirosFragment!!.processaOpcaoMenu(item)) {
-                    return true
-                } else {
-                    return super.onOptionsItemSelected(item)
-                }
-            }
-        }*/
-
 
            val opcaoProcessada = when (item.itemId) {
                 R.id.action_settings -> {
@@ -89,8 +81,9 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 else -> when (menuAtual) {
-                    R.menu.menu_enfermeiros -> DadosApp.listaEnfermeirosFragment!!.processaOpcaoMenu(item)
-                    R.menu.menu_novo_enfermeiro -> DadosApp.novoEnfermeiroFragment!!.processaOpcaoMenu(item)
+                    R.menu.menu_enfermeiros -> (DadosApp.fragment as ListaEnfermeirosFragment).processaOpcaoMenu(item)
+                    R.menu.menu_novo_enfermeiro -> (DadosApp.fragment as NovoEnfermeiroFragment).processaOpcaoMenu(item)
+                    R.menu.menu_edita_enfermeiro -> (DadosApp.fragment as EditaEnfermeiroFragment).processaOpcaoMenu(item)
                     else -> false
                 }
             }

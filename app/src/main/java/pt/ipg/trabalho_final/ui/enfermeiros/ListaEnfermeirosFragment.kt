@@ -33,7 +33,7 @@ class ListaEnfermeirosFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        DadosApp.listaEnfermeirosFragment = this
+        DadosApp.fragment = this
         (activity as MainActivity).menuAtual = R.menu.menu_enfermeiros
 
         enfermeirosViewModel =
