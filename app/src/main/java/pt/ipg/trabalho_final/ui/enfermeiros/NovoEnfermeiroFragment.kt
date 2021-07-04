@@ -42,7 +42,8 @@ class NovoEnfermeiroFragment : Fragment() {
     }
 
     fun navegaListaEnfermeiros() {
-        // todo: navegar para a lista de enfermeiros
+        findNavController().navigate(R.id.action_NovoEnfermeiroFragment_to_ListaEnfermeirosFragment)
+
     }
 
     fun guardar() {
