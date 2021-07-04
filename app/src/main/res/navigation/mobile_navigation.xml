@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_ListaEnfermeirosFragment_to_NovoEnfermeiroFragment"
             app:destination="@id/NovoEnfermeiroFragment" />
+        <action
+            android:id="@+id/action_ListaEnfermeirosFragment_to_editaEnfermeiroFragment"
+            app:destination="@id/editaEnfermeiroFragment" />
     </fragment>
 
     <fragment
@@ -37,4 +40,13 @@
         android:name="pt.ipg.trabalho_final.ui.pessoas.PessoasFragment"
         android:label="@string/menu_pessoas"
         tools:layout="@layout/fragment_pessoas" />
+    <fragment
+        android:id="@+id/editaEnfermeiroFragment"
+        android:name="pt.ipg.trabalho_final.ui.enfermeiros.EditaEnfermeiroFragment"
+        android:label="@string/edita_enfermeiro_fragment_label"
+        tools:layout="@layout/fragment_edita_enfermeiro">
+        <action
+            android:id="@+id/action_editaEnfermeiroFragment_to_ListaEnfermeirosFragment"
+            app:destination="@id/ListaEnfermeirosFragment" />
+    </fragment>
 </navigation>
