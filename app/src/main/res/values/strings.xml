@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Enfermeiros</string>
+    <string name="app_name">trabalho_final</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -24,6 +24,11 @@
     <string name="morada">Morada</string>
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
+
+    <string name="preencha_Nome">Preencha o Nome</string>
+    <string name="preencha_Contacto">Preencha o Contacto</string>
+    <string name="preencha_Morada">Preencha a Morada</string>
+    <string name="erro_inserir_enfermeiro">Erro ao inserir enfermeiro</string>
 
     <string name="versao">Covid v. 1.0</string>
 </resources>

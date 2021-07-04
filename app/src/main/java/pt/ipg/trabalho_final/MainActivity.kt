@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var menu: Menu
 
-    var menuAtual = R.menu.menu_enfermeiros
+    var menuAtual = R.menu.activity_main_drawer
         set(value) {
             field = value
             invalidateOptionsMenu()
@@ -69,22 +69,35 @@ class MainActivity : AppCompatActivity() {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        val opcaoProcessada = when (item.itemId) {
-            R.id.action_settings -> {
-                Toast.makeText(this, R.string.versao, Toast.LENGTH_LONG).show()
-                true
+
+        /*return when (item.itemId) {
+            R.id.action_settings -> true
+            else -> {
+                if (DadosApp.listaEnfermeirosFragment != null && DadosApp.listaEnfermeirosFragment!!.processaOpcaoMenu(item)) {
+                    return true
+                } else {
+                    return super.onOptionsItemSelected(item)
+                }
+            }
+        }*/
+
+
+           val opcaoProcessada = when (item.itemId) {
+                R.id.action_settings -> {
+                    Toast.makeText(this, R.string.versao, Toast.LENGTH_LONG).show()
+                    true
+                }
+
+                else -> when (menuAtual) {
+                    R.menu.menu_enfermeiros -> DadosApp.listaEnfermeirosFragment!!.processaOpcaoMenu(item)
+                    R.menu.menu_novo_enfermeiro -> DadosApp.novoEnfermeiroFragment!!.processaOpcaoMenu(item)
+                    else -> false
+                }
             }
 
-            else -> when(menuAtual) {
-                R.menu.menu_enfermeiros -> DadosApp.listaEnfermeirosFragment!!.processaOpcaoMenu(item)
-                R.menu.menu_novo_enfermeiro -> DadosApp.novoEnfermeiroFragment!!.processaOpcaoMenu(item)
-                else -> false
-            }
+            return if (opcaoProcessada) true else super.onOptionsItemSelected(item)
+
         }
-
-        return if(opcaoProcessada) true else super.onOptionsItemSelected(item)
-
-    }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)

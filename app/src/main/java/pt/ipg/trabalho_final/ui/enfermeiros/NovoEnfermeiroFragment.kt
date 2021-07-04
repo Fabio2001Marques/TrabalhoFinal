@@ -8,12 +8,11 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import pt.ipg.trabalho_final.DadosApp
-import pt.ipg.trabalho_final.MainActivity
-import pt.ipg.trabalho_final.R
+import com.google.android.material.snackbar.Snackbar
+import pt.ipg.trabalho_final.*
 import pt.ipg.trabalho_final.databinding.FragmentNovoEnfermeiroBinding
 
-class NovoEnfermeiroFragment : Fragment() {
+class NovoEnfermeiroFragment : Fragment(){
     private var _binding: FragmentNovoEnfermeiroBinding? = null
 
     private lateinit var editTextNome: EditText
@@ -55,7 +54,42 @@ class NovoEnfermeiroFragment : Fragment() {
     }
 
     fun guardar() {
-        // todo: guardar enfermeiro
+        val nome = editTextNome.text.toString()
+        if (nome.isEmpty()) {
+            editTextNome.setError(getString(R.string.preencha_Nome))
+            return
+        }
+
+        val contacto = editTextContacto.text.toString()
+        if (contacto.isEmpty()) {
+            editTextContacto.setError(getString(R.string.preencha_Contacto))
+            return
+        }
+
+        val morada = editTextMorada.text.toString()
+        if (morada.isEmpty()) {
+            editTextMorada.setError(getString(R.string.preencha_Morada))
+            return
+        }
+
+
+        val enfermeiro = Enfermeiro(nome = nome, contacto = contacto, morada = morada)
+
+        val uri = activity?.contentResolver?.insert(
+            ContentProviderCovid.ENDERECO_ENFERMEIROS,
+            enfermeiro.toContentValues()
+        )
+
+        if (uri == null) {
+            Snackbar.make(
+                editTextNome,
+                getString(R.string.erro_inserir_enfermeiro),
+                Snackbar.LENGTH_LONG
+            ).show()
+            return
+        }
+
+        navegaListaEnfermeiros()
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
