@@ -105,5 +105,5 @@ class NovaVacinaFragment : Fragment() {
             else -> return false
         }
         return true
-    } {
+    }
 }

@@ -67,9 +67,9 @@ class MainActivity : AppCompatActivity() {
             atualizaMenuListaEnfermeiros(false)
         }else if (menuAtual == R.menu.menu_pessoas) {
             atualizaMenuListaPessoas(false)
-        }/*else if (menuAtual == R.menu.menu_vacinas) {
+        }else if (menuAtual == R.menu.menu_vacinas) {
             atualizaMenuListaVacinas(false)
-        }*/
+        }
         return true
     }
 
@@ -120,9 +120,9 @@ class MainActivity : AppCompatActivity() {
         menu.findItem(R.id.action_eliminar_pessoas).setVisible(mostraBotoesAlterarEliminar)
     }
 
-    /*fun atualizaMenuListaVacinas(mostraBotoesAlterarEliminar : Boolean) {
+    fun atualizaMenuListaVacinas(mostraBotoesAlterarEliminar : Boolean) {
         menu.findItem(R.id.action_alterar_vacinas).setVisible(mostraBotoesAlterarEliminar)
         menu.findItem(R.id.action_eliminar_vacinas).setVisible(mostraBotoesAlterarEliminar)
-    }*/
+    }
 
 }

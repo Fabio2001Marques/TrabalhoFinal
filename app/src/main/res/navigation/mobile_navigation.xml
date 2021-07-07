@@ -106,6 +106,18 @@
         android:label="@string/menu_vacinas"
         tools:layout="@layout/fragment_lista_vacinas">
 
+        <action
+            android:id="@+id/action_ListaVacinasFragment_to_novaVacinaFragment"
+            app:destination="@id/novaVacinaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/novaVacinaFragment"
+        android:name="pt.ipg.trabalho_final.ui.vacinas.NovaVacinaFragment"
+        android:label="NovaVacinaFragment"
+        tools:layout="@layout/fragment_nova_vacina">
+        <action
+            android:id="@+id/action_novaVacinaFragment_to_ListaVacinasFragment"
+            app:destination="@id/ListaVacinasFragment" />
     </fragment>
 
 </navigation>
