@@ -77,9 +77,8 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.action_novo_enfermeiros -> navegaNovaPessoa()
-            R.id.action_alterar_enfermeiros -> navegaAlterarPessoa()
-            R.id.action_eliminar_enfermeiro -> navegaEliminarPessoa()
+            R.id.action_novo_pessoas -> navegaNovaPessoa()
+            R.id.action_alterar_pessoas -> navegaAlterarPessoa()
             else -> return false
         }
 

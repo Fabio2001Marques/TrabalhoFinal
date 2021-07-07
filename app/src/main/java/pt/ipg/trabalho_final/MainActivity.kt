@@ -62,8 +62,6 @@ class MainActivity : AppCompatActivity() {
         this.menu = menu
         if (menuAtual == R.menu.menu_enfermeiros) {
             atualizaMenuListaEnfermeiros(false)
-        }else if (menuAtual == R.menu.menu_nova_pessoa){
-            atualizaMenuListaPessoas(false)
         }
 
         return true
@@ -86,7 +84,7 @@ class MainActivity : AppCompatActivity() {
                     R.menu.menu_novo_enfermeiro -> (DadosApp.fragment as NovoEnfermeiroFragment).processaOpcaoMenu(item)
                     R.menu.menu_edita_enfermeiro -> (DadosApp.fragment as EditaEnfermeiroFragment).processaOpcaoMenu(item)
                     R.menu.menu_elimina_enfermeiro -> (DadosApp.fragment as EliminaEnfermeiroFragment).processaOpcaoMenu(item)
-                    R.menu.menu_enfermeiros -> (DadosApp.fragment as ListaPessoasFragment).processaOpcaoMenu(item)
+                    R.menu.menu_pessoas -> (DadosApp.fragment as ListaPessoasFragment).processaOpcaoMenu(item)
                     R.menu.menu_nova_pessoa -> (DadosApp.fragment as NovaPessoaFragment).processaOpcaoMenu(item)
                     else -> false
                 }

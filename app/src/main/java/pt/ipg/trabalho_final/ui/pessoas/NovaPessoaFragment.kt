@@ -8,9 +8,8 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import pt.ipg.trabalho_final.DadosApp
-import pt.ipg.trabalho_final.MainActivity
-import pt.ipg.trabalho_final.R
+import com.google.android.material.snackbar.Snackbar
+import pt.ipg.trabalho_final.*
 import pt.ipg.trabalho_final.databinding.FragmentNovoPessoasBinding
 
 class NovaPessoaFragment : Fragment() {
@@ -61,7 +60,53 @@ class NovaPessoaFragment : Fragment() {
     }
 
     fun guardar() {
-        // todo: guardar enfermeiro
+        val nome = editTextNome.text.toString()
+        if (nome.isEmpty()) {
+            editTextNome.setError(getString(R.string.preencha_Nome))
+            return
+        }
+        val dataNascimento = editTextDataNascimento.text.toString()
+        if (dataNascimento.isEmpty()) {
+            editTextDataNascimento.setError(getString(R.string.preencha_DataNascimento))
+            return
+        }
+
+        val campo_cc = editTextCampoCC.text.toString()
+        if (campo_cc.isEmpty()) {
+            editTextCampoCC.setError(getString(R.string.preencha_CampoCC))
+            return
+        }
+
+        val contacto = editTextContacto.text.toString()
+        if (contacto.isEmpty()) {
+            editTextContacto.setError(getString(R.string.preencha_Contacto))
+            return
+        }
+
+        val morada = editTextMorada.text.toString()
+        if (morada.isEmpty()) {
+            editTextMorada.setError(getString(R.string.preencha_Morada))
+            return
+        }
+
+
+        val pessoa = Pessoa(nome = nome, data_nascimento = 5032000,morada = "Rua Teste", campo_cc = "98745632",contacto = "963258741" )
+
+        val uri = activity?.contentResolver?.insert(
+            ContentProviderCovid.ENDERECO_PESSOAS,
+            pessoa.toContentValues()
+        )
+
+        if (uri == null) {
+            Snackbar.make(
+                editTextNome,
+                getString(R.string.erro_inserir_pessoa),
+                Snackbar.LENGTH_LONG
+            ).show()
+            return
+        }
+
+        navegaListaPessoas()
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
@@ -70,7 +115,6 @@ class NovaPessoaFragment : Fragment() {
             R.id.action_cancelar_nova_pessoa -> navegaListaPessoas()
             else -> return false
         }
-
         return true
     }
 }

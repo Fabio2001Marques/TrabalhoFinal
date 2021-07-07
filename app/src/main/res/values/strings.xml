@@ -35,8 +35,14 @@
     <string name="enfermeiro_guardado_sucesso">Enfermeiro guardado com sucesso</string>
     <string name="erro_eliminar_enfermeiro">Erro ao eliminar enfermeiro</string>
     <string name="enfermeiro_eliminado_sucesso">Enfermeiro eliminado com sucesso</string>
+    <string name="campo_cc">Campo CC</string>
 
+    <string name="preencha_DataNascimento">Preencha a Data de Nascimento</string>
+    <string name="preencha_CampoCC">Preencha o Campo CC</string>
+    <string name="erro_inserir_pessoa">Erro ao inserir pessoa</string>
+    <string name="erro_alterar_pessoa">Erro ao alterar pessoa</string>
 
     <string name="versao">Covid v. 1.0</string>
-    <string name="campo_cc">Campo CC</string>
+    <string name="data_nascimento">Data Nascimento</string>
+
 </resources>

@@ -64,6 +64,9 @@
         <action
             android:id="@+id/action_ListaPessoasFragment_to_novaPessoaFragment"
             app:destination="@id/novaPessoaFragment" />
+        <action
+            android:id="@+id/action_ListaPessoasFragment_to_editaPessoaFragment"
+            app:destination="@id/editaPessoaFragment" />
     </fragment>
     <fragment
         android:id="@+id/novaPessoaFragment"
@@ -72,6 +75,15 @@
         tools:layout="@layout/fragment_novo_pessoas">
         <action
             android:id="@+id/action_novaPessoaFragment_to_ListaPessoasFragment"
+            app:destination="@id/ListaPessoasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editaPessoaFragment"
+        android:name="pt.ipg.trabalho_final.ui.pessoas.EditaPessoaFragment"
+        android:label="EditaPessoaFragment"
+        tools:layout="@layout/fragment_edita_enfermeiro">
+        <action
+            android:id="@+id/action_editaPessoaFragment_to_ListaPessoasFragment"
             app:destination="@id/ListaPessoasFragment" />
     </fragment>
 
