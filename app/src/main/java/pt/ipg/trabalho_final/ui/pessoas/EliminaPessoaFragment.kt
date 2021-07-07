@@ -19,11 +19,11 @@ import pt.ipg.trabalho_final.R
 
 class EliminaPessoaFragment: Fragment() {
 
-    private lateinit var editTextNome: EditText
-    private lateinit var editTextDataNascimento: EditText
-    private lateinit var editTextCampoCC: EditText
-    private lateinit var editTextContacto: EditText
-    private lateinit var editTextMorada: EditText
+    private lateinit var editTextNome: TextView
+    private lateinit var editTextDataNascimento: TextView
+    private lateinit var editTextCampoCC: TextView
+    private lateinit var editTextContacto: TextView
+    private lateinit var editTextMorada: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,15 +44,15 @@ class EliminaPessoaFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        editTextNome = view.findViewById(R.id.editTextPessoasNome)
-        editTextDataNascimento = view.findViewById(R.id.editTextPessoasDataNascimento)
-        editTextContacto = view.findViewById(R.id.editTextPessoasContacto)
-        editTextCampoCC = view.findViewById(R.id.editTextPessoasCampoCC)
-        editTextMorada = view.findViewById(R.id.editTextPessoasMorada)
+        editTextNome = view.findViewById(R.id.textView_pessoa_elimina_nome)
+        editTextDataNascimento = view.findViewById(R.id.textView_pessoa_elimina_dataNascimento)
+        editTextContacto = view.findViewById(R.id.textView_pessoa_elimina_campocc)
+        editTextCampoCC = view.findViewById(R.id.textView_pessoa_elimina_campocc)
+        editTextMorada = view.findViewById(R.id.textView_pessoa_elimina_morada)
 
         val pessoa = DadosApp.pessoaSelecionada!!
         editTextNome.setText(pessoa.nome)
-        editTextDataNascimento.setText(pessoa.data_nascimento)
+        editTextDataNascimento.setText(pessoa.data_nascimento.toString())
         editTextContacto.setText(pessoa.contacto)
         editTextCampoCC.setText(pessoa.campo_cc)
         editTextMorada.setText(pessoa.morada)

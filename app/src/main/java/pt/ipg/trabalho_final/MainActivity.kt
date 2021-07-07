@@ -64,8 +64,9 @@ class MainActivity : AppCompatActivity() {
         this.menu = menu
         if (menuAtual == R.menu.menu_enfermeiros) {
             atualizaMenuListaEnfermeiros(false)
+        }else if (menuAtual == R.menu.menu_pessoas) {
+            atualizaMenuListaPessoas(false)
         }
-
         return true
     }
 

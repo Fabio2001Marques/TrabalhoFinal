@@ -25,7 +25,8 @@ class EditaPessoaFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        DadosApp.fragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_edita_pessoa
     }
 
     override fun onCreateView(
@@ -41,22 +42,22 @@ class EditaPessoaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        editTextNome = view.findViewById(R.id.editTextPessoasNome)
-        editTextDataNascimento = view.findViewById(R.id.editTextPessoasDataNascimento)
-        editTextContacto = view.findViewById(R.id.editTextPessoasContacto)
-        editTextCampoCC = view.findViewById(R.id.editTextPessoasCampoCC)
-        editTextMorada = view.findViewById(R.id.editTextPessoasMorada)
+        editTextNome = view.findViewById(R.id.editTextPessoasEditaNome)
+        editTextDataNascimento = view.findViewById(R.id.editTextPessoasEditaDataNascimento)
+        editTextContacto = view.findViewById(R.id.editTextPessoasEditaContacto)
+        editTextCampoCC = view.findViewById(R.id.editTextPessoasEditaCampoCC)
+        editTextMorada = view.findViewById(R.id.editTextPessoasEditaMorada)
 
         editTextNome.setText(DadosApp.pessoaSelecionada!!.nome)
         editTextContacto.setText(DadosApp.pessoaSelecionada!!.contacto)
         editTextMorada.setText(DadosApp.pessoaSelecionada!!.morada)
-        editTextDataNascimento.setText(DadosApp.pessoaSelecionada!!.data_nascimento)
+        editTextDataNascimento.setText(DadosApp.pessoaSelecionada!!.data_nascimento.toString())
         editTextCampoCC.setText(DadosApp.pessoaSelecionada!!.campo_cc)
 
     }
 
     fun navegaListaPessoas() {
-        findNavController().navigate(R.id.action_editaEnfermeiroFragment_to_ListaEnfermeirosFragment)
+        findNavController().navigate(R.id.action_editaPessoaFragment_to_ListaPessoasFragment)
     }
 
     fun guardar() {
@@ -80,20 +81,36 @@ class EditaPessoaFragment : Fragment() {
             editTextMorada.requestFocus()
             return
         }
+        val campocc = editTextCampoCC.text.toString()
+        if (campocc.isEmpty()) {
+            editTextCampoCC.setError(getString(R.string.preencha_CampoCC))
+            editTextCampoCC.requestFocus()
+            return
+        }
 
-        val enfermeiro = DadosApp.enfermeiroSelecionado!!
-        enfermeiro.nome = nome
-        enfermeiro.contacto = contacto
-        enfermeiro.morada = morada
+        val dataNascimento = editTextDataNascimento.text.toString()
+        if (dataNascimento.isEmpty()) {
+            editTextDataNascimento.setError(getString(R.string.preencha_DataNascimento))
+            editTextDataNascimento.requestFocus()
+            return
+        }
 
-        val uriEnfermeiro = Uri.withAppendedPath(
-            ContentProviderCovid.ENDERECO_ENFERMEIROS,
-            enfermeiro.id.toString()
+
+        val pessoa = DadosApp.pessoaSelecionada!!
+        pessoa.nome = nome
+        pessoa.contacto = contacto
+        pessoa.morada = morada
+        pessoa.campo_cc = campocc
+        pessoa.data_nascimento = dataNascimento.toInt()
+
+        val uriPessoa = Uri.withAppendedPath(
+            ContentProviderCovid.ENDERECO_PESSOAS,
+            pessoa.id.toString()
         )
 
         val registos = activity?.contentResolver?.update(
-            uriEnfermeiro,
-            enfermeiro.toContentValues(),
+            uriPessoa,
+            pessoa.toContentValues(),
             null,
             null
         )
@@ -101,7 +118,7 @@ class EditaPessoaFragment : Fragment() {
         if (registos != 1) {
             Toast.makeText(
                 requireContext(),
-                R.string.erro_alterar_enfermeiro,
+                R.string.erro_alterar_pessoa,
                 Toast.LENGTH_LONG
             ).show()
             return
@@ -109,7 +126,7 @@ class EditaPessoaFragment : Fragment() {
 
         Toast.makeText(
             requireContext(),
-            R.string.enfermeiro_guardado_sucesso,
+            R.string.pessoa_guardado_sucesso,
             Toast.LENGTH_LONG
         ).show()
         navegaListaPessoas()

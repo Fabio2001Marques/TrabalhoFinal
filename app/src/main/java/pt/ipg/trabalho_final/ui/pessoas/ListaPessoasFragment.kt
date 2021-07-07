@@ -79,6 +79,7 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
         when (item.itemId) {
             R.id.action_novo_pessoas -> navegaNovaPessoa()
             R.id.action_alterar_pessoas -> navegaAlterarPessoa()
+            R.id.action_eliminar_pessoas -> navegaEliminarPessoa()
             else -> return false
         }
 
