@@ -64,7 +64,7 @@ class ListaEnfermeirosFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
     }
 
     fun navegaAlterarEnfermeiro() {
-        //todo: navegar para o fragmento da edição de um enfermeiro
+        findNavController().navigate(R.id.action_ListaEnfermeirosFragment_to_editaEnfermeiroFragment)
     }
 
     fun navegaEliminarEnfermeiro() {
