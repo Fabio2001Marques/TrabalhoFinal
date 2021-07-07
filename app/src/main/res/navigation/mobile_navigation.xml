@@ -67,6 +67,9 @@
         <action
             android:id="@+id/action_ListaPessoasFragment_to_editaPessoaFragment"
             app:destination="@id/editaPessoaFragment" />
+        <action
+            android:id="@+id/action_ListaPessoasFragment_to_eliminaPessoaFragment"
+            app:destination="@id/eliminaPessoaFragment" />
     </fragment>
     <fragment
         android:id="@+id/novaPessoaFragment"
@@ -84,6 +87,15 @@
         tools:layout="@layout/fragment_edita_pessoa">
         <action
             android:id="@+id/action_editaPessoaFragment_to_ListaPessoasFragment"
+            app:destination="@id/ListaPessoasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminaPessoaFragment"
+        android:name="pt.ipg.trabalho_final.ui.pessoas.EliminaPessoaFragment"
+        android:label="@string/elimina_pessoa_fragment_label"
+        tools:layout="@layout/fragment_elimina_pessoa">
+        <action
+            android:id="@+id/action_eliminaPessoaFragment_to_ListaPessoasFragment"
             app:destination="@id/ListaPessoasFragment" />
     </fragment>
 

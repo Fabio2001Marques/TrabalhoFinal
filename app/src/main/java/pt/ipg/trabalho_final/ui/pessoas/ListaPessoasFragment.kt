@@ -67,7 +67,7 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
     }
 
     fun navegaEliminarPessoa() {
-        findNavController().navigate(R.id.action_ListaEnfermeirosFragment_to_eliminaEnfermeiroFragment)
+        findNavController().navigate(R.id.action_ListaPessoasFragment_to_eliminaPessoaFragment)
     }
 
     override fun onDestroyView() {
