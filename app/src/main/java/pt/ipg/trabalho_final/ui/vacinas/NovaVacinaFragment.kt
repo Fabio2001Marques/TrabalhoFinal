@@ -52,7 +52,7 @@ class NovaVacinaFragment : Fragment() {
     }
 
     fun navegaListaVacinas() {
-        //findNavController().navigate(R.id.action_novaPessoaFragment_to_ListaPessoasFragment)
+        findNavController().navigate(R.id.action_novaVacinaFragment_to_ListaVacinasFragment)
     }
 
     fun guardar() {

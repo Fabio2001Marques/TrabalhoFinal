@@ -36,6 +36,8 @@ class ListaVacinasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        DadosApp.fragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_vacinas
         vacinasViewModel =
             ViewModelProvider(this).get(VacinasViewModel::class.java)
 
@@ -60,7 +62,7 @@ class ListaVacinasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
     }
 
     fun navegaNovaVacina() {
-        //findNavController().navigate(R.id.action_ListaPessoasFragment_to_novaPessoaFragment)
+        findNavController().navigate(R.id.action_ListaVacinasFragment_to_novaVacinaFragment)
     }
 
     fun navegaAlterarVacina() {
