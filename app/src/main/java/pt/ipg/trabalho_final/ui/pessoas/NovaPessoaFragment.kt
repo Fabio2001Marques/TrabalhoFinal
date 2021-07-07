@@ -63,29 +63,34 @@ class NovaPessoaFragment : Fragment() {
         val nome = editTextNome.text.toString()
         if (nome.isEmpty()) {
             editTextNome.setError(getString(R.string.preencha_Nome))
+            editTextNome.requestFocus()
             return
         }
         val dataNascimento = editTextDataNascimento.text.toString()
         if (dataNascimento.isEmpty()) {
             editTextDataNascimento.setError(getString(R.string.preencha_DataNascimento))
+            editTextDataNascimento.requestFocus()
             return
         }
 
         val campo_cc = editTextCampoCC.text.toString()
         if (campo_cc.isEmpty()) {
             editTextCampoCC.setError(getString(R.string.preencha_CampoCC))
+            editTextCampoCC.requestFocus()
             return
         }
 
         val contacto = editTextContacto.text.toString()
         if (contacto.isEmpty()) {
             editTextContacto.setError(getString(R.string.preencha_Contacto))
+            editTextContacto.requestFocus()
             return
         }
 
         val morada = editTextMorada.text.toString()
         if (morada.isEmpty()) {
             editTextMorada.setError(getString(R.string.preencha_Morada))
+            editTextMorada.requestFocus()
             return
         }
 
