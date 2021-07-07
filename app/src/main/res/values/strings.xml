@@ -30,6 +30,8 @@
     <string name="preencha_Contacto">Preencha o Contacto</string>
     <string name="preencha_Morada">Preencha a Morada</string>
     <string name="erro_inserir_enfermeiro">Erro ao inserir enfermeiro</string>
+    <string name="erro_alterar_enfermeiro">Erro ao alterar enfermeiro</string>
+    <string name="enfermeiro_guardado_sucesso">Enfermeiro guardado com sucesso</string>
 
     <string name="versao">Covid v. 1.0</string>
 </resources>
