@@ -99,4 +99,12 @@
             app:destination="@id/ListaPessoasFragment" />
     </fragment>
 
+
+    <fragment
+        android:id="@+id/ListaVacinasFragment"
+        android:name="pt.ipg.trabalho_final.ui.vacinas.ListaVacinasFragment"
+        android:label="@string/menu_vacinas">
+
+    </fragment>
+
 </navigation>

@@ -16,5 +16,9 @@
             android:id="@+id/ListaPessoasFragment"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_pessoas" />
+        <item
+            android:id="@+id/ListaVacinasFragment"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_vacinas" />
     </group>
 </menu>
