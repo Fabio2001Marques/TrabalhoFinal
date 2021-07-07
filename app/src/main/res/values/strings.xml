@@ -41,6 +41,7 @@
     <string name="preencha_CampoCC">Preencha o Campo CC</string>
     <string name="erro_inserir_pessoa">Erro ao inserir pessoa</string>
     <string name="erro_alterar_pessoa">Erro ao alterar pessoa</string>
+    <string name="pessoa_guardado_sucesso">Pessoa guardado com sucesso</string>
 
     <string name="versao">Covid v. 1.0</string>
     <string name="data_nascimento">Data Nascimento</string>
