@@ -2,6 +2,7 @@ package pt.ipg.trabalho_final.ui.pessoas
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -38,5 +39,23 @@ class NovaPessoaFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun navegaListaPessoas() {
+        // todo: navegar para a lista de enfermeiros
+    }
+
+    fun guardar() {
+        // todo: guardar enfermeiro
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_guardar_nova_pessoa -> guardar()
+            R.id.action_cancelar_nova_pessoa -> navegaListaPessoas()
+            else -> return false
+        }
+
+        return true
     }
 }

@@ -3,6 +3,7 @@ package pt.ipg.trabalho_final.ui.pessoas
 import android.database.Cursor
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -53,7 +54,7 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
 
         val loaderManager = LoaderManager.getInstance(this)
 
-        loaderManager.initLoader(ListaPessoasFragment.ID_LOADER_MANAGER_PESSOAS, null, this)
+        loaderManager.initLoader(ID_LOADER_MANAGER_PESSOAS, null, this)
 
     }
 
@@ -61,9 +62,28 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
         findNavController().navigate(R.id.action_ListaPessoasFragment_to_novaPessoaFragment)
     }
 
+    fun navegaAlterarPessoa() {
+        findNavController().navigate(R.id.action_ListaEnfermeirosFragment_to_editaEnfermeiroFragment)
+    }
+
+    fun navegaEliminarPessoa() {
+        findNavController().navigate(R.id.action_ListaEnfermeirosFragment_to_eliminaEnfermeiroFragment)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_novo_enfermeiros -> navegaNovaPessoa()
+            R.id.action_alterar_enfermeiros -> navegaAlterarPessoa()
+            R.id.action_eliminar_enfermeiro -> navegaEliminarPessoa()
+            else -> return false
+        }
+
+        return true
     }
 
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
