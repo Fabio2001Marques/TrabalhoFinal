@@ -60,7 +60,10 @@ class MainActivity : AppCompatActivity() {
         this.menu = menu
         if (menuAtual == R.menu.menu_enfermeiros) {
             atualizaMenuListaEnfermeiros(false)
+        }else if (menuAtual == R.menu.menu_nova_pessoa){
+            atualizaMenuListaPessoas(false)
         }
+
         return true
     }
 
@@ -97,6 +100,11 @@ class MainActivity : AppCompatActivity() {
     fun atualizaMenuListaEnfermeiros(mostraBotoesAlterarEliminar : Boolean) {
         menu.findItem(R.id.action_alterar_enfermeiros).setVisible(mostraBotoesAlterarEliminar)
         menu.findItem(R.id.action_eliminar_enfermeiro).setVisible(mostraBotoesAlterarEliminar)
+    }
+
+    fun atualizaMenuListaPessoas(mostraBotoesAlterarEliminar : Boolean) {
+        menu.findItem(R.id.action_alterar_pessoas).setVisible(mostraBotoesAlterarEliminar)
+        menu.findItem(R.id.action_eliminar_pessoas).setVisible(mostraBotoesAlterarEliminar)
     }
 
 }

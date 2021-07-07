@@ -33,6 +33,7 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
         savedInstanceState: Bundle?
     ): View? {
         DadosApp.fragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_pessoas
         pessoasViewModel =
             ViewModelProvider(this).get(PessoasViewModel::class.java)
 

@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import pt.ipg.trabalho_final.DadosApp
+import pt.ipg.trabalho_final.MainActivity
+import pt.ipg.trabalho_final.R
 import pt.ipg.trabalho_final.databinding.FragmentNovoPessoasBinding
 
 class NovaPessoaFragment : Fragment() {
@@ -18,6 +21,9 @@ class NovaPessoaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        DadosApp.fragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_nova_pessoa
+
 
         _binding = FragmentNovoPessoasBinding.inflate(inflater, container, false)
         return binding.root
