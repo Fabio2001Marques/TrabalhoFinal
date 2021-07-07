@@ -112,6 +112,9 @@
         <action
             android:id="@+id/action_ListaVacinasFragment_to_editaVacinaFragment"
             app:destination="@id/editaVacinaFragment" />
+        <action
+            android:id="@+id/action_ListaVacinasFragment_to_eliminaVacinaFragment"
+            app:destination="@id/eliminaVacinaFragment" />
     </fragment>
     <fragment
         android:id="@+id/novaVacinaFragment"
@@ -129,6 +132,15 @@
         tools:layout="@layout/fragment_edita_vacina">
         <action
             android:id="@+id/action_editaVacinaFragment_to_ListaVacinasFragment"
+            app:destination="@id/ListaVacinasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminaVacinaFragment"
+        android:name="pt.ipg.trabalho_final.ui.vacinas.EliminaVacinaFragment"
+        android:label="EliminaVacinaFragment"
+        tools:layout="@layout/fragment_elimina_vacina">
+        <action
+            android:id="@+id/action_eliminaVacinaFragment_to_ListaVacinasFragment"
             app:destination="@id/ListaVacinasFragment" />
     </fragment>
 

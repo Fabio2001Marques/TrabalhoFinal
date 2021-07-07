@@ -19,6 +19,7 @@
     <string name="nova_pessoa">Nova Pessoa</string>
     <string name="alterar_pessoa">Alterar Pessoa</string>
     <string name="eliminar_pessoa">Eliminar Pessoa</string>
+    <string name="eliminar_vacina">Eliminar Vacina</string>
     <string name="elimina_pessoa_fragment_label">Eliminar pessoa?</string>
     <string name="novo">Novo</string>
     <string name="alterar">Alterar</string>
@@ -47,6 +48,8 @@
     <string name="erro_inserir_vacina">Erro ao inserir vacina</string>
     <string name="vacina_guardado_sucesso">Vacina guardada com sucesso</string>
     <string name="erro_alterar_vacina">Erro ao alterar Vacina</string>
+    <string name="erro_eliminar_vacina">Erro ao eliminar Vacina</string>
+    <string name="vacina_eliminada_sucesso">Vacina eliminada com sucesso</string>
 
     <string name="preencha_DataNascimento">Preencha a Data de Nascimento</string>
     <string name="preencha_CampoCC">Preencha o Campo CC</string>

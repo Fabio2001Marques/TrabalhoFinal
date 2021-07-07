@@ -70,7 +70,7 @@ class ListaVacinasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
     }
 
     fun navegaEliminarVacina() {
-        //findNavController().navigate(R.id.action_ListaPessoasFragment_to_eliminaPessoaFragment)
+        findNavController().navigate(R.id.action_ListaVacinasFragment_to_eliminaVacinaFragment)
     }
 
     override fun onDestroyView() {
@@ -82,7 +82,7 @@ class ListaVacinasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
         when (item.itemId) {
             R.id.action_nova_vacina -> navegaNovaVacina()
             R.id.action_alterar_vacinas -> navegaAlterarVacina()
-            //R.id.action_eliminar_pessoas -> navegaEliminarVacina()
+            R.id.action_eliminar_vacinas -> navegaEliminarVacina()
             else -> return false
         }
         return true

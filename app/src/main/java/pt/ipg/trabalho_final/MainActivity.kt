@@ -22,6 +22,7 @@ import pt.ipg.trabalho_final.ui.pessoas.EliminaPessoaFragment
 import pt.ipg.trabalho_final.ui.pessoas.ListaPessoasFragment
 import pt.ipg.trabalho_final.ui.pessoas.NovaPessoaFragment
 import pt.ipg.trabalho_final.ui.vacinas.EditaVacinaFragment
+import pt.ipg.trabalho_final.ui.vacinas.EliminaVacinaFragment
 import pt.ipg.trabalho_final.ui.vacinas.ListaVacinasFragment
 import pt.ipg.trabalho_final.ui.vacinas.NovaVacinaFragment
 
@@ -99,7 +100,7 @@ class MainActivity : AppCompatActivity() {
                     R.menu.menu_vacinas -> (DadosApp.fragment as ListaVacinasFragment).processaOpcaoMenu(item)
                     R.menu.menu_nova_vacina -> (DadosApp.fragment as NovaVacinaFragment).processaOpcaoMenu(item)
                     R.menu.menu_edita_vacina -> (DadosApp.fragment as EditaVacinaFragment).processaOpcaoMenu(item)
-                    /*R.menu.menu_elimina_vacina -> (DadosApp.fragment as EliminaVacinaFragment).processaOpcaoMenu(item)*/
+                    R.menu.menu_elimina_vacina -> (DadosApp.fragment as EliminaVacinaFragment).processaOpcaoMenu(item)
                     else -> false
                 }
             }
