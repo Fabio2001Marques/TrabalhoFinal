@@ -17,6 +17,8 @@ import pt.ipg.trabalho_final.ui.enfermeiros.EditaEnfermeiroFragment
 import pt.ipg.trabalho_final.ui.enfermeiros.EliminaEnfermeiroFragment
 import pt.ipg.trabalho_final.ui.enfermeiros.ListaEnfermeirosFragment
 import pt.ipg.trabalho_final.ui.enfermeiros.NovoEnfermeiroFragment
+import pt.ipg.trabalho_final.ui.pessoas.EditaPessoaFragment
+import pt.ipg.trabalho_final.ui.pessoas.EliminaPessoaFragment
 import pt.ipg.trabalho_final.ui.pessoas.ListaPessoasFragment
 import pt.ipg.trabalho_final.ui.pessoas.NovaPessoaFragment
 
@@ -86,10 +88,11 @@ class MainActivity : AppCompatActivity() {
                     R.menu.menu_elimina_enfermeiro -> (DadosApp.fragment as EliminaEnfermeiroFragment).processaOpcaoMenu(item)
                     R.menu.menu_pessoas -> (DadosApp.fragment as ListaPessoasFragment).processaOpcaoMenu(item)
                     R.menu.menu_nova_pessoa -> (DadosApp.fragment as NovaPessoaFragment).processaOpcaoMenu(item)
+                    R.menu.menu_edita_pessoa -> (DadosApp.fragment as EditaPessoaFragment).processaOpcaoMenu(item)
+                    R.menu.menu_elimina_pessoa -> (DadosApp.fragment as EliminaPessoaFragment).processaOpcaoMenu(item)
                     else -> false
                 }
             }
-
             return if (opcaoProcessada) true else super.onOptionsItemSelected(item)
 
         }

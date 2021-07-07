@@ -35,7 +35,9 @@
     <string name="erro_alterar_enfermeiro">Erro ao alterar enfermeiro</string>
     <string name="enfermeiro_guardado_sucesso">Enfermeiro guardado com sucesso</string>
     <string name="erro_eliminar_enfermeiro">Erro ao eliminar enfermeiro</string>
+    <string name="erro_eliminar_pessoa">Erro ao eliminar pessoa</string>
     <string name="enfermeiro_eliminado_sucesso">Enfermeiro eliminado com sucesso</string>
+    <string name="pessoa_eliminada_sucesso">Pessoa eliminada com sucesso</string>
     <string name="campo_cc">Campo CC</string>
 
     <string name="preencha_DataNascimento">Preencha a Data de Nascimento</string>
