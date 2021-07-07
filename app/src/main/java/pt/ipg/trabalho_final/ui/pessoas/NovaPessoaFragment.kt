@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import pt.ipg.trabalho_final.DadosApp
@@ -14,6 +15,13 @@ import pt.ipg.trabalho_final.databinding.FragmentNovoPessoasBinding
 
 class NovaPessoaFragment : Fragment() {
     private var _binding: FragmentNovoPessoasBinding? = null
+
+    private lateinit var editTextNome: EditText
+    private lateinit var editTextDataNascimento: EditText
+    private lateinit var editTextMorada: EditText
+    private lateinit var editTextCampoCC: EditText
+    private lateinit var editTextContacto: EditText
+
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -34,6 +42,12 @@ class NovaPessoaFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        editTextNome = view.findViewById(R.id.editTextPessoasNome)
+        editTextDataNascimento= view.findViewById(R.id.editTextPessoasDataNascimento)
+        editTextContacto = view.findViewById(R.id.editTextPessoasContacto)
+        editTextCampoCC= view.findViewById(R.id.editTextPessoasCampoCC)
+        editTextMorada = view.findViewById(R.id.editTextPessoasMorada)
 
     }
 
