@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import pt.ipg.trabalho_final.DadosApp
 import pt.ipg.trabalho_final.MainActivity
 import pt.ipg.trabalho_final.R
@@ -42,7 +43,7 @@ class NovaPessoaFragment : Fragment() {
     }
 
     fun navegaListaPessoas() {
-        // todo: navegar para a lista de enfermeiros
+        findNavController().navigate(R.id.action_novaPessoaFragment_to_ListaPessoasFragment)
     }
 
     fun guardar() {
