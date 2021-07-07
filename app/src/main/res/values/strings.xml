@@ -14,6 +14,7 @@
     <string name="novo_enfermeiro">Novo Enfermeiro</string>
     <string name="alterar_enfermeiro">Alterar Enfermeiro</string>
     <string name="eliminar_enfermeiro">Eliminar Enfermeiro</string>
+    <string name="elimina_enfermeiro_fragment_label">Eliminar enfermeiro?</string>
     <string name="nova_pessoa">Nova Pessoa</string>
     <string name="alterar_pessoa">Alterar Pessoa</string>
     <string name="eliminar_pessoa">Eliminar Pessoa</string>

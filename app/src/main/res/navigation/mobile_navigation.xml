@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_ListaEnfermeirosFragment_to_editaEnfermeiroFragment"
             app:destination="@id/editaEnfermeiroFragment" />
+        <action
+            android:id="@+id/action_ListaEnfermeirosFragment_to_eliminaEnfermeiroFragment"
+            app:destination="@id/eliminaEnfermeiroFragment" />
     </fragment>
 
     <fragment
@@ -34,12 +37,6 @@
             android:id="@+id/action_NovoEnfermeiroFragment_to_ListaEnfermeirosFragment"
             app:destination="@id/ListaEnfermeirosFragment" />
     </fragment>
-
-    <fragment
-        android:id="@+id/nav_pessoas"
-        android:name="pt.ipg.trabalho_final.ui.pessoas.PessoasFragment"
-        android:label="@string/menu_pessoas"
-        tools:layout="@layout/fragment_pessoas" />
     <fragment
         android:id="@+id/editaEnfermeiroFragment"
         android:name="pt.ipg.trabalho_final.ui.enfermeiros.EditaEnfermeiroFragment"
@@ -49,4 +46,20 @@
             android:id="@+id/action_editaEnfermeiroFragment_to_ListaEnfermeirosFragment"
             app:destination="@id/ListaEnfermeirosFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/eliminaEnfermeiroFragment"
+        android:name="pt.ipg.trabalho_final.ui.enfermeiros.EliminaEnfermeiroFragment"
+        android:label="@string/elimina_enfermeiro_fragment_label"
+        tools:layout="@layout/fragment_elimina_enfermeiro">
+        <action
+            android:id="@+id/action_eliminaEnfermeiroFragment_to_ListaEnfermeirosFragment"
+            app:destination="@id/ListaEnfermeirosFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_pessoas"
+        android:name="pt.ipg.trabalho_final.ui.pessoas.PessoasFragment"
+        android:label="@string/menu_pessoas"
+        tools:layout="@layout/fragment_pessoas" />
+
 </navigation>
