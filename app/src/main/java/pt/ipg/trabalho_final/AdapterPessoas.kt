@@ -5,9 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import pt.ipg.trabalho_final.ui.pessoas.PessoasFragment
+import pt.ipg.trabalho_final.ui.pessoas.ListaPessoasFragment
 
-class AdapterPessoas (val fragment: PessoasFragment) : RecyclerView.Adapter<AdapterPessoas.ViewHolderPessoa>() {
+class AdapterPessoas (val fragmentLista: ListaPessoasFragment) : RecyclerView.Adapter<AdapterPessoas.ViewHolderPessoa>() {
 
      var cursor: Cursor? = null
         get() = field
@@ -58,7 +58,7 @@ class AdapterPessoas (val fragment: PessoasFragment) : RecyclerView.Adapter<Adap
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderPessoa {
-        val itemPessoa = fragment.layoutInflater.inflate(R.layout.item_pessoas, parent, false)
+        val itemPessoa = fragmentLista.layoutInflater.inflate(R.layout.item_pessoas, parent, false)
 
         return ViewHolderPessoa(itemPessoa)
     }

@@ -58,7 +58,7 @@
 
     <fragment
         android:id="@+id/ListaPessoasFragment"
-        android:name="pt.ipg.trabalho_final.ui.pessoas.PessoasFragment"
+        android:name="pt.ipg.trabalho_final.ui.pessoas.ListaPessoasFragment"
         android:label="@string/menu_pessoas"
         tools:layout="@layout/fragment_pessoas" >
         <action

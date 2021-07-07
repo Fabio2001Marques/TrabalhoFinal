@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import pt.ipg.trabalho_final.*
 import pt.ipg.trabalho_final.databinding.FragmentPessoasBinding
 
-class PessoasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
+class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
 
     private lateinit var pessoasViewModel: PessoasViewModel
     private var _binding: FragmentPessoasBinding? = null
@@ -32,6 +32,7 @@ class PessoasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        DadosApp.fragment = this
         pessoasViewModel =
             ViewModelProvider(this).get(PessoasViewModel::class.java)
 
@@ -51,7 +52,7 @@ class PessoasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
 
         val loaderManager = LoaderManager.getInstance(this)
 
-        loaderManager.initLoader(PessoasFragment.ID_LOADER_MANAGER_PESSOAS, null, this)
+        loaderManager.initLoader(ListaPessoasFragment.ID_LOADER_MANAGER_PESSOAS, null, this)
 
     }
 
