@@ -57,9 +57,22 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_pessoas"
+        android:id="@+id/ListaPessoasFragment"
         android:name="pt.ipg.trabalho_final.ui.pessoas.PessoasFragment"
         android:label="@string/menu_pessoas"
-        tools:layout="@layout/fragment_pessoas" />
+        tools:layout="@layout/fragment_pessoas" >
+        <action
+            android:id="@+id/action_ListaPessoasFragment_to_novaPessoaFragment"
+            app:destination="@id/novaPessoaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/novaPessoaFragment"
+        android:name="pt.ipg.trabalho_final.ui.pessoas.NovaPessoaFragment"
+        android:label="NovaPessoaFragment"
+        tools:layout="@layout/fragment_novo_pessoas">
+        <action
+            android:id="@+id/action_novaPessoaFragment_to_ListaPessoasFragment"
+            app:destination="@id/ListaPessoasFragment" />
+    </fragment>
 
 </navigation>
