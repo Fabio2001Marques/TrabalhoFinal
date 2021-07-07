@@ -46,6 +46,7 @@
     <string name="campo_cc">Campo CC</string>
     <string name="erro_inserir_vacina">Erro ao inserir vacina</string>
     <string name="vacina_guardado_sucesso">Vacina guardada com sucesso</string>
+    <string name="erro_alterar_vacina">Erro ao alterar Vacina</string>
 
     <string name="preencha_DataNascimento">Preencha a Data de Nascimento</string>
     <string name="preencha_CampoCC">Preencha o Campo CC</string>
