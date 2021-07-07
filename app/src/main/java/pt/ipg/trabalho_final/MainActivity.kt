@@ -15,6 +15,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import pt.ipg.trabalho_final.databinding.ActivityMainBinding
 import pt.ipg.trabalho_final.ui.enfermeiros.EditaEnfermeiroFragment
+import pt.ipg.trabalho_final.ui.enfermeiros.EliminaEnfermeiroFragment
 import pt.ipg.trabalho_final.ui.enfermeiros.ListaEnfermeirosFragment
 import pt.ipg.trabalho_final.ui.enfermeiros.NovoEnfermeiroFragment
 
@@ -84,6 +85,7 @@ class MainActivity : AppCompatActivity() {
                     R.menu.menu_enfermeiros -> (DadosApp.fragment as ListaEnfermeirosFragment).processaOpcaoMenu(item)
                     R.menu.menu_novo_enfermeiro -> (DadosApp.fragment as NovoEnfermeiroFragment).processaOpcaoMenu(item)
                     R.menu.menu_edita_enfermeiro -> (DadosApp.fragment as EditaEnfermeiroFragment).processaOpcaoMenu(item)
+                    R.menu.menu_elimina_enfermeiro -> (DadosApp.fragment as EliminaEnfermeiroFragment).processaOpcaoMenu(item)
                     else -> false
                 }
             }
