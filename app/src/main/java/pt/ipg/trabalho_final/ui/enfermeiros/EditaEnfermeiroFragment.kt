@@ -48,6 +48,9 @@ class EditaEnfermeiroFragment : Fragment(){
         editTextContacto = view.findViewById(R.id.editTextEnfermeirosContacto)
         editTextMorada = view.findViewById(R.id.editTextEnfermeirosMorada)
 
+        editTextNome.setText(DadosApp.enfermeiroSelecionado!!.nome)
+        editTextContacto.setText(DadosApp.enfermeiroSelecionado!!.contacto)
+        editTextMorada.setText(DadosApp.enfermeiroSelecionado!!.morada)
     }
 
     fun navegaListaEnfermeiros() {
@@ -111,8 +114,8 @@ class EditaEnfermeiroFragment : Fragment(){
     }
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.action_guardar_novo_enfermeiro -> guardar()
-            R.id.action_cancelar_novo_enfermeiro -> navegaListaEnfermeiros()
+            R.id.action_guardar_edita_enfermeiro -> guardar()
+            R.id.action_cancelar_edita_enfermeiro -> navegaListaEnfermeiros()
             else -> return false
         }
 
