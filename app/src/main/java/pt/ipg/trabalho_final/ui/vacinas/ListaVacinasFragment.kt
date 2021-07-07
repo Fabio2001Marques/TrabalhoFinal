@@ -48,10 +48,10 @@ class ListaVacinasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val recyclerViewPessoas = view.findViewById<RecyclerView>(R.id.recyclerViewPessoas)
+        val recyclerViewVacinas = view.findViewById<RecyclerView>(R.id.recyclerViewVacinas)
         adapterVacinas = AdapterVacinas(this)
-        recyclerViewPessoas.adapter = adapterVacinas
-        recyclerViewPessoas.layoutManager = LinearLayoutManager(requireContext())
+        recyclerViewVacinas.adapter = adapterVacinas
+        recyclerViewVacinas.layoutManager = LinearLayoutManager(requireContext())
 
         val loaderManager = LoaderManager.getInstance(this)
 

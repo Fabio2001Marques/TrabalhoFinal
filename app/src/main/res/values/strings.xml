@@ -26,12 +26,16 @@
     <string name="nome">Nome</string>
     <string name="contacto">Contacto</string>
     <string name="morada">Morada</string>
+    <string name="data">Data</string>
+    <string name="quantidade">Quantidade</string>
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
 
     <string name="preencha_Nome">Preencha o Nome</string>
     <string name="preencha_Contacto">Preencha o Contacto</string>
     <string name="preencha_Morada">Preencha a Morada</string>
+    <string name="preencha_Data">Preencha a Data</string>
+    <string name="preencha_Quantidade">Preencha a Quantidade</string>
     <string name="erro_inserir_enfermeiro">Erro ao inserir enfermeiro</string>
     <string name="erro_alterar_enfermeiro">Erro ao alterar enfermeiro</string>
     <string name="enfermeiro_guardado_sucesso">Enfermeiro guardado com sucesso</string>
@@ -40,6 +44,8 @@
     <string name="enfermeiro_eliminado_sucesso">Enfermeiro eliminado com sucesso</string>
     <string name="pessoa_eliminada_sucesso">Pessoa eliminada com sucesso</string>
     <string name="campo_cc">Campo CC</string>
+    <string name="erro_inserir_vacina">Erro ao inserir vacina</string>
+    <string name="vacina_guardado_sucesso">Vacina guardada com sucesso</string>
 
     <string name="preencha_DataNascimento">Preencha a Data de Nascimento</string>
     <string name="preencha_CampoCC">Preencha o Campo CC</string>
@@ -49,7 +55,5 @@
 
     <string name="versao">Covid v. 1.0</string>
     <string name="data_nascimento">Data Nascimento</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -57,9 +57,9 @@ class AdapterVacinas (val fragmentLista: ListaVacinasFragment) : RecyclerView.Ad
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderVacina {
-        val itemPessoa = fragmentLista.layoutInflater.inflate(R.layout.item_pessoas, parent, false)
+        val itemVacina = fragmentLista.layoutInflater.inflate(R.layout.item_vacinas, parent, false)
 
-        return ViewHolderVacina(itemPessoa)
+        return ViewHolderVacina(itemVacina)
     }
 
 

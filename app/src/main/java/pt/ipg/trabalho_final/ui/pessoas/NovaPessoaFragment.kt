@@ -96,7 +96,7 @@ class NovaPessoaFragment : Fragment() {
         }
 
 
-        val pessoa = Pessoa(nome = nome, data_nascimento = 5032000,morada = "Rua Teste", campo_cc = "98745632",contacto = "963258741" )
+        val pessoa = Pessoa(nome = nome, data_nascimento = dataNascimento.toInt(), morada = morada, campo_cc = campo_cc,contacto = contacto )
 
         val uri = activity?.contentResolver?.insert(
             ContentProviderCovid.ENDERECO_PESSOAS,

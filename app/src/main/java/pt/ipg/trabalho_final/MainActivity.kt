@@ -21,6 +21,7 @@ import pt.ipg.trabalho_final.ui.pessoas.EditaPessoaFragment
 import pt.ipg.trabalho_final.ui.pessoas.EliminaPessoaFragment
 import pt.ipg.trabalho_final.ui.pessoas.ListaPessoasFragment
 import pt.ipg.trabalho_final.ui.pessoas.NovaPessoaFragment
+import pt.ipg.trabalho_final.ui.vacinas.ListaVacinasFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -66,7 +67,9 @@ class MainActivity : AppCompatActivity() {
             atualizaMenuListaEnfermeiros(false)
         }else if (menuAtual == R.menu.menu_pessoas) {
             atualizaMenuListaPessoas(false)
-        }
+        }/*else if (menuAtual == R.menu.menu_vacinas) {
+            atualizaMenuListaVacinas(false)
+        }*/
         return true
     }
 
@@ -91,6 +94,10 @@ class MainActivity : AppCompatActivity() {
                     R.menu.menu_nova_pessoa -> (DadosApp.fragment as NovaPessoaFragment).processaOpcaoMenu(item)
                     R.menu.menu_edita_pessoa -> (DadosApp.fragment as EditaPessoaFragment).processaOpcaoMenu(item)
                     R.menu.menu_elimina_pessoa -> (DadosApp.fragment as EliminaPessoaFragment).processaOpcaoMenu(item)
+                    R.menu.menu_vacinas -> (DadosApp.fragment as ListaVacinasFragment).processaOpcaoMenu(item)
+                    /*R.menu.menu_nova_vacina -> (DadosApp.fragment as NovaVacinaFragment).processaOpcaoMenu(item)
+                    R.menu.menu_edita_vacina -> (DadosApp.fragment as EditaVacinaFragment).processaOpcaoMenu(item)
+                    R.menu.menu_elimina_vacina -> (DadosApp.fragment as EliminaVacinaFragment).processaOpcaoMenu(item)*/
                     else -> false
                 }
             }
@@ -112,5 +119,10 @@ class MainActivity : AppCompatActivity() {
         menu.findItem(R.id.action_alterar_pessoas).setVisible(mostraBotoesAlterarEliminar)
         menu.findItem(R.id.action_eliminar_pessoas).setVisible(mostraBotoesAlterarEliminar)
     }
+
+    /*fun atualizaMenuListaVacinas(mostraBotoesAlterarEliminar : Boolean) {
+        menu.findItem(R.id.action_alterar_vacinas).setVisible(mostraBotoesAlterarEliminar)
+        menu.findItem(R.id.action_eliminar_vacinas).setVisible(mostraBotoesAlterarEliminar)
+    }*/
 
 }
