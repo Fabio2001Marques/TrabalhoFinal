@@ -39,9 +39,9 @@ class NovoEnfermeiroFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        editTextNome = view.findViewById(R.id.editTextEnfermeirosNome)
-        editTextContacto = view.findViewById(R.id.editTextEnfermeirosContacto)
-        editTextMorada = view.findViewById(R.id.editTextEnfermeirosMorada)
+        editTextNome = view.findViewById(R.id.editTextPessoasNome)
+        editTextContacto = view.findViewById(R.id.editTextPessoasDataNascimento)
+        editTextMorada = view.findViewById(R.id.editTextPessoasMorada)
     }
 
     override fun onDestroyView() {

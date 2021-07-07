@@ -1,6 +1,5 @@
 package pt.ipg.trabalho_final.ui.enfermeiros
 
-import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,12 +8,8 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.Spinner
 import android.widget.Toast
-import androidx.loader.app.LoaderManager
-import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.snackbar.Snackbar
 import pt.ipg.trabalho_final.*
 
 
@@ -35,9 +30,9 @@ class EditaEnfermeiroFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        editTextNome = view.findViewById(R.id.editTextEnfermeirosNome)
-        editTextContacto = view.findViewById(R.id.editTextEnfermeirosContacto)
-        editTextMorada = view.findViewById(R.id.editTextEnfermeirosMorada)
+        editTextNome = view.findViewById(R.id.editTextPessoasNome)
+        editTextContacto = view.findViewById(R.id.editTextPessoasDataNascimento)
+        editTextMorada = view.findViewById(R.id.editTextPessoasMorada)
 
         editTextNome.setText(DadosApp.enfermeiroSelecionado!!.nome)
         editTextContacto.setText(DadosApp.enfermeiroSelecionado!!.contacto)
