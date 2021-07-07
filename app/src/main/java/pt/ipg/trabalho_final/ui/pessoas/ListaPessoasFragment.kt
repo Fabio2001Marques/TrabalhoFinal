@@ -63,7 +63,7 @@ class ListaPessoasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
     }
 
     fun navegaAlterarPessoa() {
-        findNavController().navigate(R.id.action_ListaEnfermeirosFragment_to_editaEnfermeiroFragment)
+        findNavController().navigate(R.id.action_ListaPessoasFragment_to_editaPessoaFragment)
     }
 
     fun navegaEliminarPessoa() {

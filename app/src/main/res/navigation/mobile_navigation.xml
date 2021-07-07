@@ -81,7 +81,7 @@
         android:id="@+id/editaPessoaFragment"
         android:name="pt.ipg.trabalho_final.ui.pessoas.EditaPessoaFragment"
         android:label="EditaPessoaFragment"
-        tools:layout="@layout/fragment_edita_enfermeiro">
+        tools:layout="@layout/fragment_edita_pessoa">
         <action
             android:id="@+id/action_editaPessoaFragment_to_ListaPessoasFragment"
             app:destination="@id/ListaPessoasFragment" />
