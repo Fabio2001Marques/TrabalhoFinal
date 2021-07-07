@@ -17,16 +17,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import pt.ipg.trabalho_final.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [EditaLivroFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class EditaEnfermeiroFragment : Fragment(){
     private lateinit var editTextNome: EditText
     private lateinit var editTextContacto: EditText
@@ -120,10 +111,6 @@ class EditaEnfermeiroFragment : Fragment(){
         }
 
         return true
-    }
-
-    companion object {
-
     }
 
 }
