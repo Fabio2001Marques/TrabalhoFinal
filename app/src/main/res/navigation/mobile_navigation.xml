@@ -9,7 +9,17 @@
         android:id="@+id/nav_home"
         android:name="pt.ipg.trabalho_final.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_ListaEnfermeirosFragment"
+            app:destination="@id/ListaEnfermeirosFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_ListaPessoasFragment"
+            app:destination="@id/ListaPessoasFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_ListaVacinasFragment"
+            app:destination="@id/ListaVacinasFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/ListaEnfermeirosFragment"

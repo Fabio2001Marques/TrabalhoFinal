@@ -3,6 +3,7 @@ package pt.ipg.trabalho_final
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -12,6 +13,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import pt.ipg.trabalho_final.databinding.ActivityMainBinding
 import pt.ipg.trabalho_final.ui.enfermeiros.EditaEnfermeiroFragment
 import pt.ipg.trabalho_final.ui.enfermeiros.EliminaEnfermeiroFragment
@@ -53,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.ListaEnfermeirosFragment, R.id.ListaPessoasFragment
+                R.id.nav_home, R.id.ListaEnfermeirosFragment, R.id.ListaPessoasFragment,R.id.ListaVacinasFragment
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -126,6 +128,18 @@ class MainActivity : AppCompatActivity() {
     fun atualizaMenuListaVacinas(mostraBotoesAlterarEliminar : Boolean) {
         menu.findItem(R.id.action_alterar_vacinas).setVisible(mostraBotoesAlterarEliminar)
         menu.findItem(R.id.action_eliminar_vacinas).setVisible(mostraBotoesAlterarEliminar)
+    }
+
+    fun navegaListaEnfermeiros(view: View) {
+        findNavController(view.id).navigate(R.id.action_nav_home_to_ListaEnfermeirosFragment)
+    }
+
+    fun navegaListaPessoas(view: View) {
+        findNavController(view.id).navigate(R.id.action_nav_home_to_ListaPessoasFragment)
+    }
+
+    fun navegaListaVacinas(view: View) {
+        findNavController(view.id).navigate(R.id.action_nav_home_to_ListaVacinasFragment)
     }
 
 }
