@@ -12,9 +12,10 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import pt.ipg.trabalho_final.*
 import pt.ipg.trabalho_final.databinding.FragmentListaVacinasBinding
+import pt.ipg.trabalho_final.databinding.FragmentNovaVacinaBinding
 
 class NovaVacinaFragment : Fragment() {
-    private var _binding: FragmentListaVacinasBinding? = null
+    private var _binding: FragmentNovaVacinaBinding? = null
 
     private lateinit var editTextNome: EditText
     private lateinit var editTextQuantidade: EditText
@@ -33,7 +34,7 @@ class NovaVacinaFragment : Fragment() {
         (activity as MainActivity).menuAtual = R.menu.menu_nova_vacina
 
 
-        _binding = FragmentListaVacinasBinding.inflate(inflater, container, false)
+        _binding = FragmentNovaVacinaBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -62,10 +63,10 @@ class NovaVacinaFragment : Fragment() {
             editTextNome.requestFocus()
             return
         }
-        val data = editTextQuantidade.text.toString()
+        val data = editTextData.text.toString()
         if (data.isEmpty()) {
-            editTextQuantidade.setError(getString(R.string.preencha_Data))
-            editTextQuantidade.requestFocus()
+            editTextData.setError(getString(R.string.preencha_Data))
+            editTextData.requestFocus()
             return
         }
 

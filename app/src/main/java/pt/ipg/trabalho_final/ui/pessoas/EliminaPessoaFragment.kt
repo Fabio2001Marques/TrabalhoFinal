@@ -46,7 +46,7 @@ class EliminaPessoaFragment: Fragment() {
 
         editTextNome = view.findViewById(R.id.textView_pessoa_elimina_nome)
         editTextDataNascimento = view.findViewById(R.id.textView_pessoa_elimina_dataNascimento)
-        editTextContacto = view.findViewById(R.id.textView_pessoa_elimina_campocc)
+        editTextContacto = view.findViewById(R.id.textView_pessoa_elimina_contacto)
         editTextCampoCC = view.findViewById(R.id.textView_pessoa_elimina_campocc)
         editTextMorada = view.findViewById(R.id.textView_pessoa_elimina_morada)
 
@@ -98,7 +98,6 @@ class EliminaPessoaFragment: Fragment() {
             R.id.action_cancelar_eliminar_pessoa -> navegaListaPessoas()
             else -> return false
         }
-
         return true
     }
 }
