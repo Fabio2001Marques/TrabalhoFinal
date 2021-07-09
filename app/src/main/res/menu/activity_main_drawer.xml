@@ -6,19 +6,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_home_foreground"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/ListaEnfermeirosFragment"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@mipmap/ic_nurse_foreground"
             android:title="@string/menu_enfermeiros" />
         <item
             android:id="@+id/ListaPessoasFragment"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_pessoas_foreground"
             android:title="@string/menu_pessoas" />
         <item
             android:id="@+id/ListaVacinasFragment"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@mipmap/ic_seringa_foreground"
             android:title="@string/menu_vacinas" />
+        <item
+            android:id="@+id/ListaDosesFragment"
+            android:icon="@drawable/ic_baseline_healing_24"
+            android:title="@string/menu_doses" />
     </group>
 </menu>

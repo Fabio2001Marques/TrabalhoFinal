@@ -62,5 +62,6 @@
     <string name="lista_de_enfermeiros">Lista de Enfermeiros</string>
     <string name="lista_de_pessoas">Lista de Pessoas</string>
     <string name="lista_de_vacinas">Lista de Vacinas</string>
+    <string name="menu_doses">Doses</string>
 
 </resources>
