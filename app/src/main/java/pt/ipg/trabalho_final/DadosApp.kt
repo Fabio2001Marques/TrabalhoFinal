@@ -12,5 +12,6 @@ class DadosApp {
         var enfermeiroSelecionado : Enfermeiro? = null
         var pessoaSelecionada : Pessoa? = null
         var vacinaSelecionada : Vacina? = null
+        var doseSelecionada : Dose? = null
     }
 }
