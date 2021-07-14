@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_nav_home_to_ListaVacinasFragment"
             app:destination="@id/ListaVacinasFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_listaDosesFragment"
+            app:destination="@id/listaDosesFragment" />
     </fragment>
 
     <fragment
@@ -152,6 +155,15 @@
         <action
             android:id="@+id/action_eliminaVacinaFragment_to_ListaVacinasFragment"
             app:destination="@id/ListaVacinasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaDosesFragment"
+        android:name="pt.ipg.trabalho_final.ui.doses.ListaDosesFragment"
+        android:label="ListaDosesFragment"
+        tools:layout="@layout/fragment_doses">
+        <action
+            android:id="@+id/action_listaDosesFragment_to_nav_home"
+            app:destination="@id/nav_home" />
     </fragment>
 
 </navigation>

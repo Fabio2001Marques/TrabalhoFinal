@@ -6,15 +6,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:contentDescription="@string/imagem_inicial"
+        app:srcCompat="@drawable/plano_vacinacao_covid19" />
+
     <Button
         android:id="@+id/buttonHomeListaEnfermeiros"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_margin="16dp"
         android:onClick="navegaListaEnfermeiros"
         android:text="@string/lista_de_enfermeiros" />
 
@@ -22,11 +25,7 @@
         android:id="@+id/buttonHomeListaPessoas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_margin="16dp"
         android:onClick="navegaListaPessoas"
         android:text="@string/lista_de_pessoas" />
 
@@ -34,11 +33,7 @@
         android:id="@+id/buttonHomeListaVacinas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_margin="16dp"
         android:onClick="navegaListaVacinas"
         android:text="@string/lista_de_vacinas" />
 </LinearLayout>

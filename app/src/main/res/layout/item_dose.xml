@@ -52,4 +52,5 @@
         app:layout_constraintStart_toEndOf="@+id/textViewDoseData"
         app:layout_constraintTop_toTopOf="@+id/textViewDoseData"
         tools:text="10:53" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
