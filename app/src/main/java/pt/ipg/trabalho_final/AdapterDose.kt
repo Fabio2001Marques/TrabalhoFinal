@@ -58,7 +58,6 @@ class AdapterDose (val fragment: ListaDosesFragment) : RecyclerView.Adapter<Adap
         }
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderDose {
         val itemDose = fragment.layoutInflater.inflate(R.layout.item_dose, parent, false)
 
