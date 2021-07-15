@@ -15,6 +15,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import pt.ipg.trabalho_final.databinding.ActivityMainBinding
+import pt.ipg.trabalho_final.ui.doses.ListaDosesFragment
 import pt.ipg.trabalho_final.ui.enfermeiros.EditaEnfermeiroFragment
 import pt.ipg.trabalho_final.ui.enfermeiros.EliminaEnfermeiroFragment
 import pt.ipg.trabalho_final.ui.enfermeiros.ListaEnfermeirosFragment
@@ -55,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.ListaEnfermeirosFragment, R.id.ListaPessoasFragment,R.id.ListaVacinasFragment
+                R.id.nav_home, R.id.ListaEnfermeirosFragment, R.id.ListaPessoasFragment,R.id.ListaVacinasFragment,R.id.ListaDosesFragment
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -74,6 +75,8 @@ class MainActivity : AppCompatActivity() {
             atualizaMenuListaPessoas(false)
         }else if (menuAtual == R.menu.menu_vacinas) {
             atualizaMenuListaVacinas(false)
+        }else if (menuAtual == R.menu.menu_dose) {
+            //atualizaMenuListaDoses(false)
         }
         return true
     }
@@ -103,6 +106,7 @@ class MainActivity : AppCompatActivity() {
                     R.menu.menu_nova_vacina -> (DadosApp.fragment as NovaVacinaFragment).processaOpcaoMenu(item)
                     R.menu.menu_edita_vacina -> (DadosApp.fragment as EditaVacinaFragment).processaOpcaoMenu(item)
                     R.menu.menu_elimina_vacina -> (DadosApp.fragment as EliminaVacinaFragment).processaOpcaoMenu(item)
+                    R.menu.menu_dose -> (DadosApp.fragment as ListaDosesFragment).processaOpcaoMenu(item)
                     else -> false
                 }
             }
@@ -130,6 +134,11 @@ class MainActivity : AppCompatActivity() {
         menu.findItem(R.id.action_eliminar_vacinas).setVisible(mostraBotoesAlterarEliminar)
     }
 
+    /*fun atualizaMenuListaDoses(mostraBotoesAlterarEliminar : Boolean) {
+        menu.findItem(R.id.action_alterar_dose).setVisible(mostraBotoesAlterarEliminar)
+        menu.findItem(R.id.action_eliminar_dose).setVisible(mostraBotoesAlterarEliminar)
+    }*/
+
     fun navegaListaEnfermeiros(view: View) {
         findNavController(view.id).navigate(R.id.action_nav_home_to_ListaEnfermeirosFragment)
     }
@@ -140,6 +149,10 @@ class MainActivity : AppCompatActivity() {
 
     fun navegaListaVacinas(view: View) {
         findNavController(view.id).navigate(R.id.action_nav_home_to_ListaVacinasFragment)
+    }
+
+    fun navegaListaDoses(view: View) {
+        findNavController(view.id).navigate(R.id.action_nav_home_to_listaDosesFragment)
     }
 
 }

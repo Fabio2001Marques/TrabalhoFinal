@@ -70,5 +70,6 @@
     <string name="n_mero_dose">Número Dose:</string>
     <string name="enfermeiro_itemDose">Enfermeiro:</string>
     <string name="vacina_itemDose">Vacina:</string>
+    <string name="lista_de_doses">Lista De Doses</string>
 
 </resources>

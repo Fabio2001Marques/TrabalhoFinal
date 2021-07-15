@@ -36,4 +36,12 @@
         android:layout_margin="16dp"
         android:onClick="navegaListaVacinas"
         android:text="@string/lista_de_vacinas" />
+
+    <Button
+        android:id="@+id/buttonHomeListaDoses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:onClick="navegaListaDoses"
+        android:text="@string/lista_de_doses" />
 </LinearLayout>
