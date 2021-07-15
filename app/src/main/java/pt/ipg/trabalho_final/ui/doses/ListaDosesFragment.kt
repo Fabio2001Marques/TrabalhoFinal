@@ -9,8 +9,19 @@ import pt.ipg.trabalho_final.AdapterVacinas
 import pt.ipg.trabalho_final.databinding.FragmentListaVacinasBinding
 import pt.ipg.trabalho_final.ui.home.VacinasViewModel
 
-class ListaDosesFragment : Fragment(){
+class ListaDosesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
-    private lateinit var dosesViewModel: DosesViewModel
+
+    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
+        TODO("Not yet implemented")
+    }
+
+    override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onLoaderReset(loader: Loader<Cursor>) {
+        TODO("Not yet implemented")
+    }
 
 }
