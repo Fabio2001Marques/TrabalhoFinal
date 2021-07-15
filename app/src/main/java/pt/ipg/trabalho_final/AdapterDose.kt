@@ -20,6 +20,8 @@ class AdapterDose (val fragment: ListaDosesFragment) : RecyclerView.Adapter<Adap
         private val textViewNome = itemView.findViewById<TextView>(R.id.textViewDoseNome)
         private val textViewData = itemView.findViewById<TextView>(R.id.textViewDoseData)
         private val textViewHora = itemView.findViewById<TextView>(R.id.textViewDoseHora)
+        private val textViewEnfermeiro = itemView.findViewById<TextView>(R.id.textViewDoseEnfermeiro)
+        private val textViewVacina = itemView.findViewById<TextView>(R.id.textViewDoseVacina)
 
         private lateinit var dose: Dose
 
@@ -34,6 +36,8 @@ class AdapterDose (val fragment: ListaDosesFragment) : RecyclerView.Adapter<Adap
             textViewNome.text = dose.nomePessoa
             textViewData.text = dose.data.toString()
             textViewHora.text = dose.hora.toString()
+            textViewEnfermeiro.text = dose.nomeEnfermeiro
+            textViewVacina.text = dose.nomeVacina
         }
 
         override fun onClick(v: View?) {

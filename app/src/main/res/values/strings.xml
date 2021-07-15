@@ -64,5 +64,11 @@
     <string name="lista_de_vacinas">Lista de Vacinas</string>
     <string name="menu_doses">Doses</string>
     <string name="imagem_inicial">imagem_inicial</string>
+    <string name="pessoa">Pessoa:</string>
+    <string name="data_item_dose">Data:</string>
+    <string name="hora_itemDose">Hora:</string>
+    <string name="n_mero_dose">Número Dose:</string>
+    <string name="enfermeiro_itemDose">Enfermeiro:</string>
+    <string name="vacina_itemDose">Vacina:</string>
 
 </resources>

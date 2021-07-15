@@ -6,36 +6,25 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/textViewDoseNumDose"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="1" />
-
-    <TextView
         android:id="@+id/textViewDoseNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewDoseNumDose"
-        app:layout_constraintStart_toEndOf="@+id/textViewDoseNumDose"
-        app:layout_constraintTop_toTopOf="@+id/textViewDoseNumDose"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:text="Andre Silva" />
 
     <TextView
         android:id="@+id/textViewDoseData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/textViewDoseNome"
         app:layout_constraintStart_toEndOf="@+id/textViewDoseNome"
         app:layout_constraintTop_toTopOf="@+id/textViewDoseNome"
@@ -45,12 +34,108 @@
         android:id="@+id/textViewDoseHora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/textViewDoseData"
         app:layout_constraintStart_toEndOf="@+id/textViewDoseData"
         app:layout_constraintTop_toTopOf="@+id/textViewDoseData"
         tools:text="10:53" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/pessoa"
+        android:textColor="@color/cor_destaque"
+        app:layout_constraintStart_toStartOf="@+id/textViewDoseNome"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/data_item_dose"
+        android:textColor="@color/cor_destaque"
+        app:layout_constraintStart_toStartOf="@+id/textViewDoseData"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/hora_itemDose"
+        android:textColor="@color/cor_destaque"
+        app:layout_constraintStart_toStartOf="@+id/textViewDoseHora"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/n_mero_dose"
+        android:textColor="@color/cor_destaque"
+        app:layout_constraintStart_toStartOf="@+id/textViewDoseNome"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDoseNome" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/enfermeiro_itemDose"
+        android:textColor="@color/cor_destaque"
+        app:layout_constraintStart_toStartOf="@+id/textViewDoseData"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDoseData" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/vacina_itemDose"
+        android:textColor="@color/cor_destaque"
+        app:layout_constraintStart_toStartOf="@+id/textViewDoseHora"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDoseHora" />
+
+    <TextView
+        android:id="@+id/textViewDoseNumDose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/textViewDoseEnfermeiro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        tools:text="André Martins" />
+
+    <TextView
+        android:id="@+id/textViewDoseVacina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        tools:text="Moderna" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
