@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import pt.ipg.trabalho_final.databinding.ActivityMainBinding
 import pt.ipg.trabalho_final.ui.doses.EditaDoseFragment
+import pt.ipg.trabalho_final.ui.doses.EliminaDoseFragment
 import pt.ipg.trabalho_final.ui.doses.ListaDosesFragment
 import pt.ipg.trabalho_final.ui.doses.NovaDoseFragment
 import pt.ipg.trabalho_final.ui.enfermeiros.EditaEnfermeiroFragment
@@ -111,6 +112,7 @@ class MainActivity : AppCompatActivity() {
                     R.menu.menu_dose -> (DadosApp.fragment as ListaDosesFragment).processaOpcaoMenu(item)
                     R.menu.menu_nova_dose -> (DadosApp.fragment as NovaDoseFragment).processaOpcaoMenu(item)
                     R.menu.menu_edita_dose -> (DadosApp.fragment as EditaDoseFragment).processaOpcaoMenu(item)
+                    R.menu.menu_elimina_dose -> (DadosApp.fragment as EliminaDoseFragment).processaOpcaoMenu(item)
                     else -> false
                 }
             }

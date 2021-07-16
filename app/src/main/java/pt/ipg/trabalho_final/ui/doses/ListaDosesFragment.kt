@@ -69,7 +69,7 @@ class ListaDosesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     fun navegaEliminarDose() {
-        //findNavController().navigate(R.id.action_ListaPessoasFragment_to_eliminaPessoaFragment)
+        findNavController().navigate(R.id.action_listaDosesFragment_to_eliminaDoseFragment)
     }
 
     override fun onDestroyView() {
