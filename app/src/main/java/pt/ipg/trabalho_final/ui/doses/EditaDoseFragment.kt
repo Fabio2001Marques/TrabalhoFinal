@@ -1,6 +1,7 @@
 package pt.ipg.trabalho_final.ui.doses
 
 import android.database.Cursor
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -15,12 +16,9 @@ import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.snackbar.Snackbar
 import pt.ipg.trabalho_final.*
-import pt.ipg.trabalho_final.databinding.FragmentNovaDoseBinding
 
-class NovaDoseFragment  : Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
-    private var _binding: FragmentNovaDoseBinding? = null
+class EditaDoseFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
 
     private lateinit var spinnerPessoa: Spinner
     private lateinit var editTextData: EditText
@@ -28,53 +26,53 @@ class NovaDoseFragment  : Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
     private lateinit var spinnerEnfermeiro: Spinner
     private lateinit var spinnerVacina: Spinner
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        DadosApp.fragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_edita_dose
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         DadosApp.fragment = this
-        (activity as MainActivity).menuAtual = R.menu.menu_nova_dose
-
-
-        _binding = FragmentNovaDoseBinding.inflate(inflater, container, false)
-        return binding.root
-
+        (activity as MainActivity).menuAtual = R.menu.menu_edita_dose
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_edita_dose, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        editTextData = view.findViewById(R.id.editTextData)
-        editTextHora = view.findViewById(R.id.editTextHora)
-        spinnerPessoa = view.findViewById(R.id.spinnerPessoas)
-        spinnerEnfermeiro = view.findViewById(R.id.spinnerEnfermeiros)
-        spinnerVacina = view.findViewById(R.id.spinnerVacinas)
+        editTextData = view.findViewById(R.id.editTextEditaDoseData)
+        editTextHora = view.findViewById(R.id.editTextEditaDoseHora)
+        spinnerPessoa = view.findViewById(R.id.spinnerEditaDosePessoas)
+        spinnerEnfermeiro = view.findViewById(R.id.spinnerEditaDoseEnfermeiros)
+        spinnerVacina = view.findViewById(R.id.spinnerEditaDoseVacinas)
 
         LoaderManager.getInstance(this).initLoader(ID_LOADER_MANAGER_PESSOA, null, this)
         LoaderManager.getInstance(this).initLoader(ID_LOADER_MANAGER_ENFERMEIRO, null, this)
         LoaderManager.getInstance(this).initLoader(ID_LOADER_MANAGER_VACINA, null, this)
-    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        editTextData.setText(DadosApp.doseSelecionada!!.data.toString())
+        editTextHora.setText(DadosApp.doseSelecionada!!.hora.toString())
+
     }
 
     fun navegaListaDoses() {
-        findNavController().navigate(R.id.action_novaDoseFragment_to_listaDosesFragment)
+        findNavController().navigate(R.id.action_editaDoseFragment_to_listaDosesFragment)
     }
 
     fun guardar() {
-       val data = editTextData.text.toString()
+        val data = editTextData.text.toString()
         if (data.isEmpty()) {
             editTextData.setError(getString(R.string.preencha_Data))
             editTextData.requestFocus()
             return
         }
+
         val hora = editTextHora.text.toString()
         if (hora.isEmpty()) {
             editTextHora.setError(getString(R.string.preencha_Hora))
@@ -82,35 +80,37 @@ class NovaDoseFragment  : Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
             return
         }
         val idPessoa = spinnerPessoa.selectedItemId
-
-        val uridose = ContentProviderCovid.ENDERECO_DOSES_NUM_DOSES
-
-        val registos = activity?.contentResolver?.query(uridose,null,null,null,null)
-        var num_dose = 0
-        registos!!.moveToFirst()
-        while (registos.getLong(0) != null){
-            num_dose++
-            registos.moveToNext()
-        }
-
         val idEnfermeiro = spinnerEnfermeiro.selectedItemId
         val idVacina = spinnerVacina.selectedItemId
 
-        val dose = Dose(num_dose = num_dose ,data = data.toInt(), hora = hora.toInt(), id_pessoas = idPessoa, id_enfermeiros = idEnfermeiro, id_vacinas = idVacina)
+        val dose = DadosApp.doseSelecionada!!
+        dose.data = data.toInt()
+        dose.hora = hora.toInt()
+        dose.id_pessoas = idPessoa
+        dose.id_enfermeiros = idEnfermeiro
+        dose.id_vacinas = idVacina
 
-        val uri = activity?.contentResolver?.insert(
+        val uriDose = Uri.withAppendedPath(
             ContentProviderCovid.ENDERECO_DOSES,
-            dose.toContentValues()
+            dose.id.toString()
         )
 
-        if (uri == null) {
-            Snackbar.make(
-                editTextData,
-                getString(R.string.erro_inserir_dose),
-                Snackbar.LENGTH_LONG
+        val registos = activity?.contentResolver?.update(
+            uriDose,
+            dose.toContentValues(),
+            null,
+            null
+        )
+
+        if (registos != 1) {
+            Toast.makeText(
+                requireContext(),
+                R.string.erro_alterar_dose,
+                Toast.LENGTH_LONG
             ).show()
             return
         }
+
         Toast.makeText(
             requireContext(),
             R.string.dose_guardado_sucesso,
@@ -121,12 +121,14 @@ class NovaDoseFragment  : Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.action_guardar_nova_dose -> guardar()
-            R.id.action_cancelar_nova_dose -> navegaListaDoses()
+            R.id.action_guardar_edita_dose -> guardar()
+            R.id.action_cancelar_edita_dose -> navegaListaDoses()
             else -> return false
         }
+
         return true
     }
+
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         when(id){
             0 -> return CursorLoader(
@@ -211,6 +213,4 @@ class NovaDoseFragment  : Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
         const val ID_LOADER_MANAGER_ENFERMEIRO = 1
         const val ID_LOADER_MANAGER_VACINA = 2
     }
-
-
 }

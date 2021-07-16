@@ -51,6 +51,7 @@
     <string name="erro_alterar_vacina">Erro ao alterar Vacina</string>
     <string name="erro_eliminar_vacina">Erro ao eliminar Vacina</string>
     <string name="vacina_eliminada_sucesso">Vacina eliminada com sucesso</string>
+    <string name="erro_alterar_dose">Erro ao alterar Dose</string>
 
     <string name="erro_inserir_dose">Erro ao inserir dose</string>
     <string name="dose_guardado_sucesso">Dose guardada com sucesso</string>

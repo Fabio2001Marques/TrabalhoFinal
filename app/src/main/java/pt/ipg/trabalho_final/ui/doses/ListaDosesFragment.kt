@@ -65,7 +65,7 @@ class ListaDosesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     fun navegaAlterarDose() {
-        //findNavController().navigate(R.id.action_ListaPessoasFragment_to_editaPessoaFragment)
+        findNavController().navigate(R.id.action_listaDosesFragment_to_editaDoseFragment)
     }
 
     fun navegaEliminarDose() {

@@ -164,6 +164,9 @@
         <action
             android:id="@+id/action_listaDosesFragment_to_novaDoseFragment"
             app:destination="@id/novaDoseFragment" />
+        <action
+            android:id="@+id/action_listaDosesFragment_to_editaDoseFragment"
+            app:destination="@id/editaDoseFragment" />
     </fragment>
     <fragment
         android:id="@+id/novaDoseFragment"
@@ -172,6 +175,15 @@
         tools:layout="@layout/fragment_nova_dose">
         <action
             android:id="@+id/action_novaDoseFragment_to_listaDosesFragment"
+            app:destination="@id/listaDosesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editaDoseFragment"
+        android:name="pt.ipg.trabalho_final.ui.doses.EditaDoseFragment"
+        android:label="EditaDoseFragment"
+        tools:layout="@layout/fragment_edita_dose">
+        <action
+            android:id="@+id/action_editaDoseFragment_to_listaDosesFragment"
             app:destination="@id/listaDosesFragment" />
     </fragment>
 
