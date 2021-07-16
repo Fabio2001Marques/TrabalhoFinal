@@ -16,7 +16,7 @@ import pt.ipg.trabalho_final.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: VacinasViewModel
+    private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
 
     // This property is only valid between onCreateView and
@@ -30,7 +30,7 @@ class HomeFragment : Fragment() {
     ): View? {
         DadosApp.fragment = this
         homeViewModel =
-            ViewModelProvider(this).get(VacinasViewModel::class.java)
+            ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root

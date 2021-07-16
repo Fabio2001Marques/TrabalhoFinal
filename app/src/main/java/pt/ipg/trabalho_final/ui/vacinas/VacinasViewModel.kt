@@ -1,4 +1,4 @@
-package pt.ipg.trabalho_final.ui.home
+package pt.ipg.trabalho_final.ui.vacinas
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

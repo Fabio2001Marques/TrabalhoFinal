@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pt.ipg.trabalho_final.*
 import pt.ipg.trabalho_final.databinding.FragmentListaVacinasBinding
-import pt.ipg.trabalho_final.ui.home.VacinasViewModel
+import pt.ipg.trabalho_final.ui.vacinas.VacinasViewModel
 
 class ListaVacinasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
 

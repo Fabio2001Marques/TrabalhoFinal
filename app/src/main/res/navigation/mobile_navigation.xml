@@ -160,10 +160,19 @@
         android:id="@+id/listaDosesFragment"
         android:name="pt.ipg.trabalho_final.ui.doses.ListaDosesFragment"
         android:label="ListaDosesFragment"
-        tools:layout="@layout/fragment_doses">
+        tools:layout="@layout/fragment_lista_doses">
         <action
-            android:id="@+id/action_listaDosesFragment_to_nav_home"
-            app:destination="@id/nav_home" />
+            android:id="@+id/action_listaDosesFragment_to_novaDoseFragment"
+            app:destination="@id/novaDoseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/novaDoseFragment"
+        android:name="pt.ipg.trabalho_final.ui.doses.NovaDoseFragment"
+        android:label="NovaDoseFragment"
+        tools:layout="@layout/fragment_nova_dose">
+        <action
+            android:id="@+id/action_novaDoseFragment_to_listaDosesFragment"
+            app:destination="@id/listaDosesFragment" />
     </fragment>
 
 </navigation>

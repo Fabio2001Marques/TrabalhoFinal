@@ -15,8 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pt.ipg.trabalho_final.*
 import pt.ipg.trabalho_final.databinding.FragmentListaDosesBinding
-import pt.ipg.trabalho_final.databinding.FragmentListaVacinasBinding
-import pt.ipg.trabalho_final.ui.home.VacinasViewModel
+
 
 class ListaDosesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -35,6 +34,8 @@ class ListaDosesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        DadosApp.fragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_dose
         dosesViewModel =
             ViewModelProvider(this).get(DosesViewModel::class.java)
 
@@ -77,9 +78,9 @@ class ListaDosesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         when (item.itemId) {
-            /*R.id.action_nova_dose -> navegaNovaDose()
+            R.id.action_nova_dose -> navegaNovaDose()
             R.id.action_alterar_dose -> navegaAlterarDose()
-            R.id.action_eliminar_dose -> navegaEliminarDose()*/
+            R.id.action_eliminar_dose -> navegaEliminarDose()
             else -> return false
         }
         return true
