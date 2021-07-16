@@ -92,6 +92,8 @@ class ContentProviderCovid : ContentProvider() {
                 null,
                 null
             )
+
+            URI_DOSES_NUM_DOSES -> bd.rawQuery("SELECT ID_pessoas FROM Doses", null)
             else -> null
         }
     }
@@ -106,6 +108,7 @@ class ContentProviderCovid : ContentProvider() {
             URI_VACINAS_ESPECIFICO -> "$UNICO_ITEM/$VACINAS"
             URI_DOSES -> "$MULTIPLOS_ITEMS/$DOSES"
             URI_DOSES_ESPECIFICA -> "$UNICO_ITEM/$DOSES"
+            URI_DOSES_NUM_DOSES -> "$MULTIPLOS_ITEMS/$NUM_DOSES"
             else -> null
         }
     }
@@ -241,6 +244,7 @@ class ContentProviderCovid : ContentProvider() {
         const val PESSOAS = "pessoas"
         const val VACINAS = "vacinas"
         const val DOSES = "doses"
+        const val NUM_DOSES = "num_doses"
 
         private const val URI_ENFERMEIROS = 100
         private const val URI_ENFERMEIROS_ESPECIFICO = 101
@@ -250,6 +254,7 @@ class ContentProviderCovid : ContentProvider() {
         private const val URI_VACINAS_ESPECIFICO = 301
         private const val URI_DOSES = 400
         private const val URI_DOSES_ESPECIFICA = 401
+        private const val URI_DOSES_NUM_DOSES = 500
 
         private const val MULTIPLOS_ITEMS = "vnd.adroid.cursor.dir"
         private const val UNICO_ITEM = "vnd.android.cursor.item"
@@ -259,6 +264,8 @@ class ContentProviderCovid : ContentProvider() {
         public val ENDERECO_PESSOAS = Uri.withAppendedPath(ENDERECO_BASE, PESSOAS)
         public val ENDERECO_VACINAS = Uri.withAppendedPath(ENDERECO_BASE, VACINAS)
         public val ENDERECO_DOSES = Uri.withAppendedPath(ENDERECO_BASE, DOSES)
+        public val ENDERECO_DOSES_NUM_DOSES = Uri.withAppendedPath(ENDERECO_BASE, NUM_DOSES)
+
 
         private fun getUriMatcher() : UriMatcher {
             val uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
@@ -276,6 +283,7 @@ class ContentProviderCovid : ContentProvider() {
             uriMatcher.addURI(AUTHORITY,"$VACINAS/#", URI_VACINAS_ESPECIFICO)
             uriMatcher.addURI(AUTHORITY, DOSES, URI_DOSES)
             uriMatcher.addURI(AUTHORITY, "$DOSES/#", URI_DOSES_ESPECIFICA)
+            uriMatcher.addURI(AUTHORITY, NUM_DOSES, URI_DOSES_NUM_DOSES)
 
             return uriMatcher
         }

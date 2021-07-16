@@ -6,9 +6,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
@@ -18,7 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pt.ipg.trabalho_final.*
 import pt.ipg.trabalho_final.databinding.FragmentListaVacinasBinding
-import pt.ipg.trabalho_final.ui.vacinas.VacinasViewModel
+
 
 class ListaVacinasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
 

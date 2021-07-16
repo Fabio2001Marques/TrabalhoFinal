@@ -36,6 +36,7 @@
     <string name="preencha_Contacto">Preencha o Contacto</string>
     <string name="preencha_Morada">Preencha a Morada</string>
     <string name="preencha_Data">Preencha a Data</string>
+    <string name="preencha_Hora">Preencha a Hora</string>
     <string name="preencha_Quantidade">Preencha a Quantidade</string>
     <string name="erro_inserir_enfermeiro">Erro ao inserir enfermeiro</string>
     <string name="erro_alterar_enfermeiro">Erro ao alterar enfermeiro</string>
@@ -50,6 +51,9 @@
     <string name="erro_alterar_vacina">Erro ao alterar Vacina</string>
     <string name="erro_eliminar_vacina">Erro ao eliminar Vacina</string>
     <string name="vacina_eliminada_sucesso">Vacina eliminada com sucesso</string>
+
+    <string name="erro_inserir_dose">Erro ao inserir dose</string>
+    <string name="dose_guardado_sucesso">Dose guardada com sucesso</string>
 
     <string name="preencha_DataNascimento">Preencha a Data de Nascimento</string>
     <string name="preencha_CampoCC">Preencha o Campo CC</string>

@@ -1,6 +1,8 @@
 package pt.ipg.trabalho_final.ui.doses
 
 import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -70,46 +72,54 @@ class NovaDoseFragment  : Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
     }
 
     fun guardar() {
-       /* val nome = editTextNome.text.toString()
-        if (nome.isEmpty()) {
-            editTextNome.setError(getString(R.string.preencha_Nome))
-            editTextNome.requestFocus()
-            return
-        }
-        val data = editTextData.text.toString()
+       val data = editTextData.text.toString()
         if (data.isEmpty()) {
             editTextData.setError(getString(R.string.preencha_Data))
             editTextData.requestFocus()
             return
         }
-
-        val quantidade = editTextQuantidade.text.toString()
-        if (quantidade.isEmpty()) {
-            editTextQuantidade.setError(getString(R.string.preencha_Quantidade))
-            editTextQuantidade.requestFocus()
+        val hora = editTextHora.text.toString()
+        if (hora.isEmpty()) {
+            editTextHora.setError(getString(R.string.preencha_Hora))
+            editTextHora.requestFocus()
             return
         }
+        val idPessoa = spinnerPessoa.selectedItemId
 
-        val vacina = Vacina(nome = nome, quantidade = quantidade.toInt(), data = data.toInt())
+        val uridose = ContentProviderCovid.ENDERECO_DOSES_NUM_DOSES
+
+        val registos = activity?.contentResolver?.query(uridose,null,null,null,null)
+        var num_dose = 0
+        registos!!.moveToFirst()
+        while (registos.getLong(0) != null){
+            num_dose++
+            registos.moveToNext()
+        }
+
+        val idEnfermeiro = spinnerEnfermeiro.selectedItemId
+        val idVacina = spinnerVacina.selectedItemId
+
+        val dose = Dose(num_dose = num_dose ,data = data.toInt(), hora = hora.toInt(), id_pessoas = idPessoa, id_enfermeiros = idEnfermeiro, id_vacinas = idVacina)
+
         val uri = activity?.contentResolver?.insert(
-            ContentProviderCovid.ENDERECO_VACINAS,
-            vacina.toContentValues()
+            ContentProviderCovid.ENDERECO_DOSES,
+            dose.toContentValues()
         )
 
         if (uri == null) {
             Snackbar.make(
-                editTextNome,
-                getString(R.string.erro_inserir_vacina),
+                editTextData,
+                getString(R.string.erro_inserir_dose),
                 Snackbar.LENGTH_LONG
             ).show()
             return
         }
         Toast.makeText(
             requireContext(),
-            R.string.vacina_guardado_sucesso,
+            R.string.dose_guardado_sucesso,
             Toast.LENGTH_LONG
         ).show()
-        navegaListaVacinas()*/
+        navegaListaDoses()
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
@@ -121,25 +131,49 @@ class NovaDoseFragment  : Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
         return true
     }
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
-        return CursorLoader(
-            requireContext(),
-            ContentProviderCovid.ENDERECO_PESSOAS,
-            TabelaPessoas.TODOS_CAMPOS,
-            null, null,
-            TabelaPessoas.CAMPO_NOME
-        )
+        when(id){
+            0 -> return CursorLoader(
+                requireContext(),
+                ContentProviderCovid.ENDERECO_PESSOAS,
+                TabelaPessoas.TODOS_CAMPOS,
+                null, null,
+                TabelaPessoas.CAMPO_NOME
+            )
+
+            1 -> return CursorLoader(
+                requireContext(),
+                ContentProviderCovid.ENDERECO_ENFERMEIROS,
+                TabelaEnfermeiros.TODOS_CAMPOS,
+                null, null,
+                TabelaEnfermeiros.CAMPO_NOME
+            )
+
+            else -> return CursorLoader(
+                requireContext(),
+                ContentProviderCovid.ENDERECO_VACINAS,
+                TabelaVacinas.TODOS_CAMPOS,
+                null, null,
+                TabelaVacinas.CAMPO_NOME
+            )
+
+        }
+
     }
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-        atualizaSpinnerPessoas(data)
-        atualizaSpinnerEnfermeiros(data)
-        atualizaSpinnerVacinas(data)
+        when(loader.id){
+            0 -> atualizaSpinnerPessoas(data)
+            1 -> atualizaSpinnerEnfermeiros(data)
+            2 -> atualizaSpinnerVacinas(data)
+        }
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        atualizaSpinnerPessoas(null)
-        atualizaSpinnerEnfermeiros(null)
-        atualizaSpinnerVacinas(null)
+        when(loader.id){
+            0 -> atualizaSpinnerPessoas(null)
+            1 -> atualizaSpinnerEnfermeiros(null)
+            2 -> atualizaSpinnerVacinas(null)
+        }
     }
 
     private fun atualizaSpinnerPessoas(data: Cursor?) {
@@ -177,8 +211,8 @@ class NovaDoseFragment  : Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
 
     companion object {
         const val ID_LOADER_MANAGER_PESSOA = 0
-        const val ID_LOADER_MANAGER_ENFERMEIRO = 0
-        const val ID_LOADER_MANAGER_VACINA = 0
+        const val ID_LOADER_MANAGER_ENFERMEIRO = 1
+        const val ID_LOADER_MANAGER_VACINA = 2
     }
 
 

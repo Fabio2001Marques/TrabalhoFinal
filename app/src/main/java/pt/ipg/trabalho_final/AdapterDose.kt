@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import pt.ipg.trabalho_final.ui.doses.ListaDosesFragment
 
 class AdapterDose (val fragment: ListaDosesFragment) : RecyclerView.Adapter<AdapterDose.ViewHolderDose>() {
-    public var cursor: Cursor? = null
+     var cursor: Cursor? = null
         get() = field
         set(value) {
             field = value

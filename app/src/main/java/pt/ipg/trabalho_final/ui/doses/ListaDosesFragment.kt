@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pt.ipg.trabalho_final.*
@@ -60,7 +61,7 @@ class ListaDosesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     fun navegaNovaDose() {
-        //findNavController().navigate(R.id.action_ListaPessoasFragment_to_novaPessoaFragment)
+        findNavController().navigate(R.id.action_listaDosesFragment_to_novaDoseFragment)
     }
 
     fun navegaAlterarDose() {

@@ -159,7 +159,7 @@
     <fragment
         android:id="@+id/listaDosesFragment"
         android:name="pt.ipg.trabalho_final.ui.doses.ListaDosesFragment"
-        android:label="ListaDosesFragment"
+        android:label="@string/menu_doses"
         tools:layout="@layout/fragment_lista_doses">
         <action
             android:id="@+id/action_listaDosesFragment_to_novaDoseFragment"
