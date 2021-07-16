@@ -32,7 +32,13 @@ class AdapterPessoas (val fragmentLista: ListaPessoasFragment) : RecyclerView.Ad
             this.pessoa = pessoa
 
             textViewNome.text = pessoa.nome
-            textViewNascimento.text = pessoa.data_nascimento.toString()
+            var data = ""
+            data = (pessoa.data_nascimento/1000000).toString()
+            pessoa.data_nascimento = pessoa.data_nascimento%1000000
+            data = data + "/" + (pessoa.data_nascimento/10000).toString()
+            pessoa.data_nascimento= pessoa.data_nascimento%10000
+            data = data + "/" + pessoa.data_nascimento.toString()
+            textViewNascimento.text = data
             textViewContato.text = pessoa.contacto
             textViewMorada.text = pessoa.morada
         }

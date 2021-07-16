@@ -86,13 +86,17 @@ class NovaDoseFragment  : Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
         val uridose = ContentProviderCovid.ENDERECO_DOSES_NUM_DOSES
 
         val registos = activity?.contentResolver?.query(uridose,null,null,null,null)
-        var num_dose = 0
-        registos!!.moveToFirst()
-        while (registos.getLong(0) != null){
-            num_dose++
-            registos.moveToNext()
-        }
 
+        var num_dose = 1
+
+        if (registos != null) {
+            while (registos.moveToNext()){
+                if (registos.getLong(0).equals(idPessoa)) {
+                    num_dose++
+                }
+                registos.moveToNext()
+            }
+        }
         val idEnfermeiro = spinnerEnfermeiro.selectedItemId
         val idVacina = spinnerVacina.selectedItemId
 

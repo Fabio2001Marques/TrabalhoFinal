@@ -32,7 +32,14 @@ class AdapterVacinas (val fragmentLista: ListaVacinasFragment) : RecyclerView.Ad
 
             textViewNome.text = vacina.nome
             textViewQuantidade.text = vacina.quantidade.toString()
-            textViewData.text = vacina.data.toString()
+
+            var data = ""
+            data = (vacina.data/1000000).toString()
+            vacina.data = vacina.data%1000000
+            data = data + "/" + (vacina.data/10000).toString()
+            vacina.data= vacina.data%10000
+            data = data + "/" + vacina.data.toString()
+            textViewData.text = data
         }
 
         override fun onClick(v: View?) {
