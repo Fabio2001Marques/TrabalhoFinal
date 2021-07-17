@@ -19,12 +19,12 @@
 
     <TextView
         android:id="@+id/textViewDoseData"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/textViewDoseNome"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
         app:layout_constraintTop_toTopOf="@+id/textViewDoseNome"
         tools:text="20/06/2021" />
 
@@ -32,12 +32,10 @@
         android:id="@+id/textViewDoseHora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/textViewDoseData"
-        app:layout_constraintStart_toEndOf="@+id/textViewDoseData"
+        app:layout_constraintStart_toStartOf="@+id/textView13"
         app:layout_constraintTop_toTopOf="@+id/textViewDoseData"
         tools:text="10:53" />
 
@@ -58,7 +56,8 @@
         android:layout_marginTop="16dp"
         android:text="@string/data_item_dose"
         android:textColor="@color/cor_destaque"
-        app:layout_constraintStart_toStartOf="@+id/textViewDoseData"
+        app:layout_constraintEnd_toStartOf="@+id/textView10"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -85,12 +84,10 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
         android:layout_marginTop="16dp"
         android:text="@string/enfermeiro_itemDose"
         android:textColor="@color/cor_destaque"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintStart_toStartOf="@+id/textViewDoseData"
         app:layout_constraintTop_toBottomOf="@+id/textViewDoseData" />
 
     <TextView
@@ -100,7 +97,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/vacina_itemDose"
         android:textColor="@color/cor_destaque"
-        app:layout_constraintStart_toStartOf="@+id/textViewDoseHora"
+        app:layout_constraintStart_toStartOf="@+id/textViewDoseVacina"
         app:layout_constraintTop_toBottomOf="@+id/textViewDoseHora" />
 
     <TextView
@@ -132,9 +129,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/textView13"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
         tools:text="Moderna" />
 

@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margem_campos"
                 android:hint="@string/data_nascimento"
-                android:inputType="phone" />
+                android:inputType="number" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -49,7 +49,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margem_campos"
                         android:hint="@string/campo_cc"
-                        android:inputType="textLongMessage" />
+                        android:inputType="number" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
