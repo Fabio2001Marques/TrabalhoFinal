@@ -72,14 +72,19 @@ class MainActivity : AppCompatActivity() {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(menuAtual, menu)
         this.menu = menu
-        if (menuAtual == R.menu.menu_enfermeiros) {
-            atualizaMenuListaEnfermeiros(false)
-        }else if (menuAtual == R.menu.menu_pessoas) {
-            atualizaMenuListaPessoas(false)
-        }else if (menuAtual == R.menu.menu_vacinas) {
-            atualizaMenuListaVacinas(false)
-        }else if (menuAtual == R.menu.menu_dose) {
-            atualizaMenuListaDoses(false)
+        when (menuAtual) {
+            R.menu.menu_enfermeiros -> {
+                atualizaMenuListaEnfermeiros(false)
+            }
+            R.menu.menu_pessoas -> {
+                atualizaMenuListaPessoas(false)
+            }
+            R.menu.menu_vacinas -> {
+                atualizaMenuListaVacinas(false)
+            }
+            R.menu.menu_dose -> {
+                atualizaMenuListaDoses(false)
+            }
         }
         return true
     }

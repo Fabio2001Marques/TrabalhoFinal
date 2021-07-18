@@ -33,7 +33,9 @@
     <string name="cancelar">Cancelar</string>
 
     <string name="preencha_Nome">Preencha o Nome</string>
+    <string name="nome_semLetras">Nome não pode conter números</string>
     <string name="preencha_Contacto">Preencha o Contacto</string>
+    <string name="Contacto_NoveDigitos">O Contacto tem de ter 9 dígitos</string>
     <string name="preencha_Morada">Preencha a Morada</string>
     <string name="preencha_Data">Preencha a Data</string>
     <string name="preencha_Hora">Preencha a Hora</string>
@@ -59,6 +61,10 @@
     <string name="dose_guardado_sucesso">Dose guardada com sucesso</string>
 
     <string name="preencha_DataNascimento">Preencha a Data de Nascimento</string>
+    <string name="data_erro_tamanho">Tamanho da Data incorreto (DDMMAAAA)</string>
+    <string name="erro_dia">Dia tem de estar entre 1 e 31</string>
+    <string name="erro_mes">Mês tem de estar entre 1 e 12</string>
+    <string name="erro_ano">Ano inválido</string>
     <string name="preencha_CampoCC">Preencha o Campo CC</string>
     <string name="erro_inserir_pessoa">Erro ao inserir pessoa</string>
     <string name="erro_alterar_pessoa">Erro ao alterar pessoa</string>

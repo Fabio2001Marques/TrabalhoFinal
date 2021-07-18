@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import pt.ipg.trabalho_final.*
-import pt.ipg.trabalho_final.databinding.FragmentListaVacinasBinding
 import pt.ipg.trabalho_final.databinding.FragmentNovaVacinaBinding
 
 class NovaVacinaFragment : Fragment() {

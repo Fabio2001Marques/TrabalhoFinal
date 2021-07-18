@@ -56,21 +56,30 @@ class NovoEnfermeiroFragment : Fragment(){
 
     fun guardar() {
         val nome = editTextNome.text.toString()
-        if (nome.isEmpty()) {
+        var pattern = Regex("[0-9]")
+        if (nome.trim().isEmpty()) {
             editTextNome.setError(getString(R.string.preencha_Nome))
+            editTextNome.requestFocus()
+            return
+        }else if(pattern.containsMatchIn(nome)){
+            editTextNome.setError(getString(R.string.nome_semLetras))
             editTextNome.requestFocus()
             return
         }
 
         val contacto = editTextContacto.text.toString()
-        if (contacto.isEmpty()) {
+        if (contacto.trim().isEmpty()) {
             editTextContacto.setError(getString(R.string.preencha_Contacto))
+            editTextContacto.requestFocus()
+            return
+        }else if (contacto.length != 9){
+            editTextContacto.setError(getString(R.string.Contacto_NoveDigitos))
             editTextContacto.requestFocus()
             return
         }
 
         val morada = editTextMorada.text.toString()
-        if (morada.isEmpty()) {
+        if (morada.trim().isEmpty()) {
             editTextMorada.setError(getString(R.string.preencha_Morada))
             editTextMorada.requestFocus()
             return
