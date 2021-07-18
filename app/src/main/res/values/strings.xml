@@ -2,7 +2,7 @@
     <string name="app_name">trabalho_final</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_title">Vacinação Covid</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
@@ -65,7 +65,11 @@
     <string name="erro_dia">Dia tem de estar entre 1 e 31</string>
     <string name="erro_mes">Mês tem de estar entre 1 e 12</string>
     <string name="erro_ano">Ano inválido</string>
+    <string name="hora_erro_tamanho">Tamanho da Hora incorreto (HHMM)</string>
+    <string name="erro_hora">Hora tem de estar entre 0 e 23</string>
+    <string name="erro_minutos">Minutos tem de estar entre 0 e 59</string>
     <string name="preencha_CampoCC">Preencha o Campo CC</string>
+    <string name="CampoCC_invalido">Campo CC tem de conter 8 dígitos</string>
     <string name="erro_inserir_pessoa">Erro ao inserir pessoa</string>
     <string name="erro_alterar_pessoa">Erro ao alterar pessoa</string>
     <string name="pessoa_guardado_sucesso">Pessoa guardado com sucesso</string>

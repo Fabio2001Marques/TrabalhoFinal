@@ -67,6 +67,22 @@ class NovaVacinaFragment : Fragment() {
             editTextData.setError(getString(R.string.preencha_Data))
             editTextData.requestFocus()
             return
+        }else if (data.length != 8 ){
+            editTextData.setError(getString(R.string.data_erro_tamanho))
+            editTextData.requestFocus()
+            return
+        }else if (((data.toInt() / 1000000)  > 31) || ((data.toInt() / 1000000)  < 1)){
+            editTextData.setError(getString(R.string.erro_dia))
+            editTextData.requestFocus()
+            return
+        }else if ((data.substring(2,4).toInt() > 12) || (data.substring(2,4).toInt() < 1)){
+            editTextData.setError(getString(R.string.erro_mes))
+            editTextData.requestFocus()
+            return
+        }else if ((data.toInt() % 10000 > 2021) || (data.toInt() % 10000 < 1900)){
+            editTextData.setError(getString(R.string.erro_ano))
+            editTextData.requestFocus()
+            return
         }
 
         val quantidade = editTextQuantidade.text.toString()

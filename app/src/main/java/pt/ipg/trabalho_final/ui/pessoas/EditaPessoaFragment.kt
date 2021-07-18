@@ -62,36 +62,66 @@ class EditaPessoaFragment : Fragment() {
 
     fun guardar() {
         val nome = editTextNome.text.toString()
-        if (nome.isEmpty()) {
+        var pattern = Regex("[0-9]")
+        if (nome.trim().isEmpty()) {
             editTextNome.setError(getString(R.string.preencha_Nome))
+            editTextNome.requestFocus()
+            return
+        }else if(pattern.containsMatchIn(nome)){
+            editTextNome.setError(getString(R.string.nome_semLetras))
             editTextNome.requestFocus()
             return
         }
 
-        val contacto = editTextContacto.text.toString()
-        if (contacto.isEmpty()) {
-            editTextContacto.setError(getString(R.string.preencha_Contacto))
-            editTextContacto.requestFocus()
+        val dataNascimento = editTextDataNascimento.text.toString()
+        if (dataNascimento.trim().isEmpty()) {
+            editTextDataNascimento.setError(getString(R.string.preencha_DataNascimento))
+            editTextDataNascimento.requestFocus()
+            return
+        }else if (dataNascimento.length != 8 ){
+            editTextDataNascimento.setError(getString(R.string.data_erro_tamanho))
+            editTextDataNascimento.requestFocus()
+            return
+        }else if (((dataNascimento.toInt() / 1000000)  > 31) || ((dataNascimento.toInt() / 1000000)  < 1)){
+            editTextDataNascimento.setError(getString(R.string.erro_dia))
+            editTextDataNascimento.requestFocus()
+            return
+        }else if ((dataNascimento.substring(2,4).toInt() > 12) || (dataNascimento.substring(2,4).toInt() < 1)){
+            editTextDataNascimento.setError(getString(R.string.erro_mes))
+            editTextDataNascimento.requestFocus()
+            return
+        }else if ((dataNascimento.toInt() % 10000 > 2021) || (dataNascimento.toInt() % 10000 < 1900)){
+            editTextDataNascimento.setError(getString(R.string.erro_ano))
+            editTextDataNascimento.requestFocus()
             return
         }
 
         val morada = editTextMorada.text.toString()
-        if (morada.isEmpty()) {
+        if (morada.trim().isEmpty()) {
             editTextMorada.setError(getString(R.string.preencha_Morada))
             editTextMorada.requestFocus()
             return
         }
-        val campocc = editTextCampoCC.text.toString()
-        if (campocc.isEmpty()) {
+
+        val campo_cc = editTextCampoCC.text.toString()
+        if (campo_cc.trim().isEmpty()) {
             editTextCampoCC.setError(getString(R.string.preencha_CampoCC))
+            editTextCampoCC.requestFocus()
+            return
+        }else if (campo_cc.length != 8){
+            editTextCampoCC.setError(getString(R.string.CampoCC_invalido))
             editTextCampoCC.requestFocus()
             return
         }
 
-        val dataNascimento = editTextDataNascimento.text.toString()
-        if (dataNascimento.isEmpty()) {
-            editTextDataNascimento.setError(getString(R.string.preencha_DataNascimento))
-            editTextDataNascimento.requestFocus()
+        val contacto = editTextContacto.text.toString()
+        if (contacto.trim().isEmpty()) {
+            editTextContacto.setError(getString(R.string.preencha_Contacto))
+            editTextContacto.requestFocus()
+            return
+        }else if (contacto.length != 9){
+            editTextContacto.setError(getString(R.string.Contacto_NoveDigitos))
+            editTextContacto.requestFocus()
             return
         }
 
@@ -100,7 +130,7 @@ class EditaPessoaFragment : Fragment() {
         pessoa.nome = nome
         pessoa.contacto = contacto
         pessoa.morada = morada
-        pessoa.campo_cc = campocc
+        pessoa.campo_cc = campo_cc
         pessoa.data_nascimento = dataNascimento.toInt()
 
         val uriPessoa = Uri.withAppendedPath(

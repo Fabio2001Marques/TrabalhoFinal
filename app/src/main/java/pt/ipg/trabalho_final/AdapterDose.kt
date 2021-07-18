@@ -34,16 +34,8 @@ class AdapterDose (val fragment: ListaDosesFragment) : RecyclerView.Adapter<Adap
 
             textViewNumDose.text = dose.num_dose.toString()
             textViewNome.text = dose.nomePessoa
-            var data = ""
-            data = (dose.data/1000000).toString()
-            dose.data = dose.data%1000000
-            data = data + "/" + (dose.data/10000).toString()
-            dose.data = dose.data%10000
-            data = data + "/" + dose.data.toString()
-            textViewData.text = data
-            var hora = ""
-            hora = (dose.hora/100).toString() + ":" + (dose.hora%100).toString()
-            textViewHora.text = hora
+            textViewData.text = dose.data.toString().substring(0,2)+"/"+dose.data.toString().substring(2,4)+"/"+dose.data.toString().substring(4,8)
+            textViewHora.text = dose.hora.toString().substring(0,2)+":"+dose.hora.toString().substring(2,4)
             textViewEnfermeiro.text = dose.nomeEnfermeiro
             textViewVacina.text = dose.nomeVacina
         }

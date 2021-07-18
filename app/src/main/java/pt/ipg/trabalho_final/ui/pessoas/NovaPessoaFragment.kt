@@ -109,11 +109,19 @@ class NovaPessoaFragment : Fragment() {
             editTextCampoCC.setError(getString(R.string.preencha_CampoCC))
             editTextCampoCC.requestFocus()
             return
+        }else if (campo_cc.length != 8){
+            editTextCampoCC.setError(getString(R.string.CampoCC_invalido))
+            editTextCampoCC.requestFocus()
+            return
         }
 
         val contacto = editTextContacto.text.toString()
         if (contacto.trim().isEmpty()) {
             editTextContacto.setError(getString(R.string.preencha_Contacto))
+            editTextContacto.requestFocus()
+            return
+        }else if (contacto.length != 9){
+            editTextContacto.setError(getString(R.string.Contacto_NoveDigitos))
             editTextContacto.requestFocus()
             return
         }
